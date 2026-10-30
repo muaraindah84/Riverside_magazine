@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverside Living Magazine - Double Edition Edisi 10 & 11</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { height: 4px; width: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+
+    <!-- Top Bar / Breaking News Ticker -->
+    <div class="bg-slate-950 text-white text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2 overflow-hidden">
+                <span class="bg-red-600 text-white px-2 py-0.5 rounded font-extrabold uppercase tracking-widest text-[9px] animate-pulse shadow-sm">DOUBLE EDITION</span>
+                <p class="truncate text-slate-300 font-medium">Tema: Dua Bulan, Satu Semangat: Transparansi, Kenyamanan, & Keasrian Hunian</p>
+            </div>
+            <div class="hidden md:flex space-x-4 text-slate-400 font-medium">
+                <span>Edisi: 10 & 11 (Oktober – November 2026)[cite: 2]</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm backdrop-blur-md bg-white/95">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="resetFilter()">
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-sm shrink-0">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200" alt="Logo Riverside" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-xl font-black tracking-tight text-slate-900 group-hover:text-blue-900 transition uppercase leading-tight">RIVERSIDE <span class="text-amber-600 font-bold">LIVING</span></h1>
+                    <p class="text-[10px] text-slate-500 font-semibold tracking-widest uppercase">Double Edition Portal & Magazine</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <a href="#portalApps" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-full transition flex items-center gap-1.5 border border-slate-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Portal Apps
+                </a>
+                <a href="#laporanWargaSection" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3 py-2 rounded-full transition shadow-sm flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    Lapor Warga
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Navigation & Search -->
+        <nav class="bg-slate-900 text-white border-t border-slate-800 shadow-inner">
+            <div class="max-w-6xl mx-auto px-4 flex justify-between items-center overflow-x-auto py-2.5 scrollbar-none gap-4">
+                <div class="flex space-x-2 overflow-x-auto scrollbar-none">
+                    <button onclick="filterCategory('Semua')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white transition shadow-sm whitespace-nowrap">Semua Artikel</button>
+                    <button onclick="filterCategory('Redaksi')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Salam Redaksi</button>
+                    <button onclick="filterCategory('Laporan')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Laporan Pekerjaan</button>
+                    <button onclick="filterCategory('Edukasi')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Edukasi & Global</button>
+                    <button onclick="filterCategory('Sanctuary')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Sanctuary & Tips</button>
+                    <button onclick="filterCategory('Komunitas')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Suara Warga</button>
+                </div>
+                <div class="hidden lg:block w-64 shrink-0">
+                    <input type="text" id="searchInput" onkeyup="filterArticles()" placeholder="Cari artikel..." class="w-full bg-slate-800 border border-slate-700 text-white rounded-full py-1.5 pl-3 pr-4 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
+        
+        <!-- Featured Hero Section (Article ID 1) -->
+        <div id="heroSection" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200/80 grid md:grid-cols-2 gap-0 cursor-pointer transition group" onclick="openArticle(1)">
+            <div class="relative h-64 md:h-auto overflow-hidden">
+                <img id="heroImage" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" alt="Hero" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span id="heroCategory" class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">Salam Redaksi</span>
+            </div>
+            <div class="p-6 md:p-8 flex flex-col justify-between bg-gradient-to-br from-white to-slate-50">
+                <div>
+                    <div class="flex items-center text-xs text-slate-500 space-x-2 mb-2 font-medium">
+                        <span id="heroDate">Oktober – November 2026[cite: 2]</span>
+                        <span>•</span>
+                        <span id="heroAuthor">Tenant Relation Riverside Apartment[cite: 2]</span>
+                    </div>
+                    <h2 id="heroTitle" class="text-xl md:text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug">Menyambung Langkah, Mempererat Kebersamaan[cite: 2]</h2>
+                    <p id="heroSummary" class="text-slate-600 text-sm leading-relaxed mb-4">Hadir kembali Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11) merangkum perjalanan pengelolaan, evaluasi operasional, dan dinamika komunitas[cite: 2].</p>
+                </div>
+                <div class="flex items-center text-blue-600 font-bold text-xs uppercase tracking-wider">
+                    Baca Selengkapnya 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Articles Grid -->
+        <section>
+            <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
+                <h3 id="sectionTitle" class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    Rubrik & Artikel Edisi Ganda
+                </h3>
+                <span id="articleCount" class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">8 Artikel</span>
+            </div>
+            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Dynamic JavaScript Content -->
+            </div>
+        </section>
+
+        <!-- Section: 10 Detik Riverside (Video Feature) -->
+        <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <span class="bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">Shorts / Reels</span>
+                    <h3 class="text-xl font-black mt-2">10 Detik Riverside</h3>
+                    <p class="text-xs text-slate-400">Momen keasrian, kesibukan, dan aktivitas harian di kawasan apartemen.</p>
+                </div>
+                <div class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">Update Rutin Double Edition</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Suasana MUAT 2026 Apartemen Riverside</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Keasrian Taman & Tanaman Bougainvillea</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Sudut Jendela Window Nook Estetik</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Album Kerja & Galeri Foto -->
+        <section>
+            <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
+                <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                    Album Kerja & Galeri Lapangan (Oktober 2026)
+                </h3>
+                <span class="text-xs font-medium text-slate-500">Dokumentasi Double Edition</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Perawatan Pompa Air</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Pelaksanaan MUAT 2026</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Penataan Taman Warga</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Sistem QR & Gate Parkir</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Portal Apps Link -->
+        <section id="portalApps" class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-6 md:p-8 text-white shadow-md flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-blue-300 font-bold text-xs uppercase tracking-widest">Ekosistem Digital Riverside</span>
+                <h3 class="text-xl font-black mt-1">Akses Layanan & Aplikasi Warga Lainnya</h3>
+                <p class="text-xs text-slate-300 mt-1">Terhubung langsung dengan sistem reservasi fasilitas berbasis QR, pembayaran IPL, dan gate parkir digital.</p>
+            </div>
+            <div class="flex flex-wrap gap-3 shrink-0">
+                <a href="#" onclick="alert('Membuka Sistem Reservasi Fasilitas QR')" class="bg-white text-blue-900 hover:bg-blue-50 font-bold text-xs px-4 py-2.5 rounded-xl transition shadow">Reservasi QR</a>
+                <a href="#" onclick="alert('Membuka Portal Pembayaran IPL')" class="bg-blue-800 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition border border-blue-700">Bayar IPL Online</a>
+            </div>
+        </section>
+
+        <!-- Section: Laporan Warga / Helpdesk Form -->
+        <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="max-w-xl">
+                <span class="bg-red-100 text-red-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Helpdesk Pengurus</span>
+                <h3 class="text-xl font-black text-slate-900 mt-2">Formulir Laporan & Aspirasi Warga</h3>
+                <p class="text-xs text-slate-500 mt-1">Ada fasilitas umum rusak, lampu mati, atau masukan untuk pengelolaan? Laporkan langsung di sini.</p>
+            </div>
+            <form onsubmit="handleReportSubmit(event)" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni</label>
+                    <input type="text" id="reportName" required placeholder="Contoh: Bpk. Budi / Tower A-05" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Kendala</label>
+                    <select id="reportCategory" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <option>Fasilitas Umum & Kerusakan</option>
+                        <option>Kebersihan & Taman</option>
+                        <option>Keamanan & Ketertiban</option>
+                        <option>Parkir & Kendaraan</option>
+                        <option>Lainnya</option>
+                    </select>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Detail Laporan / Pesan</label>
+                    <textarea id="reportMessage" rows="3" required placeholder="Jelaskan kendala atau masukan Anda secara jelas..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Laporan ke Tenant Relation</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Article Detail Modal -->
+    <div id="articleModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-all">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-slate-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-lg z-10 transition shadow">&times;</button>
+            <div class="relative h-64 md:h-72">
+                <img id="modalImage" src="" alt="Modal Image" class="w-full h-full object-cover">
+                <span id="modalCategory" class="absolute bottom-4 left-4 bg-blue-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow"></span>
+            </div>
+            <div class="p-6 md:p-8">
+                <div class="flex items-center space-x-2 text-xs text-slate-500 mb-3 font-medium">
+                    <span id="modalDate"></span>
+                    <span>•</span>
+                    <span id="modalAuthor"></span>
+                </div>
+                <h2 id="modalTitle" class="text-xl md:text-2xl font-black text-slate-900 mb-4 leading-snug"></h2>
+                <div id="modalContent" class="text-slate-700 text-sm md:text-base leading-relaxed space-y-4 border-t border-slate-100 pt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Footer Widget -->
+    <section class="bg-slate-900 text-white py-10 border-t border-slate-800 mt-16 shadow-inner">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h4 class="font-black text-amber-500 mb-3 uppercase text-xs tracking-widest">Darurat & Bantuan</h4>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">Layanan pengaduan dan bantuan darurat 24 jam untuk seluruh penghuni Muara Indah Riverside.</p>
+                <div class="text-sm font-bold text-slate-200">Security Lobby: <span class="text-amber-400">Ext. 101 / WhatsApp Operational</span></div>
+            </div>
+            <div>
+                <h4 class="font-black text-amber-500 mb-3 uppercase text-xs tracking-widest">Kontak Pengelola</h4>
+                <p class="text-xs text-slate-300 font-medium">Customer Service Management Office</p>
+                <p class="text-xs text-slate-400 mt-1">Tenant Relation: 0881-1852-908</p>
+            </div>
+            <div class="flex flex-col justify-center items-center md:items-end">
+                <h4 class="font-black text-amber-500 mb-3 uppercase text-xs tracking-widest">Riverside Living</h4>
+                <p class="text-xs text-slate-400 text-center md:text-right leading-relaxed">Dua Bulan, Satu Semangat.<br>Transparansi, Kenyamanan, & Keasrian Hunian[cite: 2].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Copyright -->
+    <footer class="bg-slate-950 text-slate-500 text-xs py-4 text-center border-t border-slate-900 font-medium">
+        <p>&copy; 2026 Riverside Living Magazine (Double Edition Edisi 10 & 11). All rights reserved.[cite: 2]</p>
+    </footer>
+
+    <!-- Application JavaScript Logic -->
+    <script>
+        const articles = [
+            {
+                id: 1,
+                title: "Menyambung Langkah, Mempererat Kebersamaan[cite: 2]",
+                category: "Redaksi",
+                date: "Oktober – November 2026[cite: 2]",
+                author: "Tenant Relation Riverside Apartment[cite: 2]",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+                summary: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Edisi kali ini merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas selama September & Oktober 2026[cite: 2].",
+                content: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Hadir kembali di hadapan Bapak/Ibu sekalian, Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11). Edisi kali ini kami hadirkan secara istimewa dengan konten yang lebih padat, merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas kita selama dua bulan berturut-turut (September & Oktober 2026)[cite: 2]. Berbagai momen krusial telah kita lalui bersama, salah satunya adalah agenda Musyawarah Umum Anggota Tahunan (MUAT) 2026 yang berlangsung dengan hangat dan penuh semangat keterbukaan[cite: 2]. Di saat yang sama, pemeliharaan rutin gedung serta modernisasi layanan digital—seperti sistem reservasi fasilitas berbasis QR—terus ditingkatkan demi kenyamanan bersama[cite: 2]. Melalui edisi ini, kami mengajak seluruh warga untuk terus menjaga keasrian, kebersihan, serta keharmonisan di lingkungan Riverside[cite: 2]. Selamat membaca[cite: 2]!"
+            },
+            {
+                id: 2,
+                title: "Laporan Kinerja & Album Kerja: Rekapitulasi September & Oktober 2026[cite: 2]",
+                category: "Laporan",
+                date: "Oktober 2026[cite: 2]",
+                author: "Tenant Relation Riverside Apartment[cite: 2]",
+                image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800",
+                summary: "Rangkuman lengkap pemeliharaan utilitas gedung, pengelolaan sampah, pelaksanaan MUAT 2026, hingga pembaruan sistem digital berbasis QR[cite: 2].",
+                content: "<strong>A. Rekapitulasi Pekerjaan Bulan September 2026</strong><br>• Pemeliharaan & Utilitas Gedung: Perawatan berkala unit pompa air utama dan pengecekan panel listrik koridor[cite: 2]. Pengecekan rutin kebersihan saluran pembuangan air hujan (drainase utama)[cite: 2].<br>• Pengelolaan Sampah & Kebersihan: Evaluasi pengangkutan sampah bulanan dan penataan area pemilahan sampah non-rumah tangga[cite: 2]. Peningkatan frekuensi penyemprotan desinfektan dan pembersihan area publik/lobby[cite: 2].<br><br><strong>B. Rekapitulasi Pekerjaan Bulan Oktober 2026</strong><br>• Pelaksanaan MUAT 2026: Pengorganisasian Musyawarah Umum Anggota Tahunan (MUAT) 2026, mencakup rekapitulasi kehadiran digital, pelaporan keuangan, dan pembahasan arah tata kelola gedung ke depan[cite: 2].<br>• Digitalisasi & Fasilitas: Pembaruan dan pengujian integrasi sistem pendaftaran pengunjung serta reservasi fasilitas olahraga via sistem QR / form digital[cite: 2]. Perbaikan dan perawatan rutin penerangan area parkir dan taman publik[cite: 2]."
+            },
+            {
+                id: 3,
+                title: "Eco-Living di Hunian Vertikal: Bersiap Menghadapi Musim Hujan[cite: 2]",
+                category: "Edukasi",
+                date: "Oktober 2026[cite: 2]",
+                author: "Tenant Relation Riverside Apartment[cite: 2]",
+                image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800",
+                summary: "Perubahan iklim global dan datangnya musim hujan menuntut kesiapsiagaan bersama di hunian vertikal[cite: 2].",
+                content: "Perubahan iklim global dan datangnya musim hujan menuntut kesiapsiagaan bersama, terutama bagi kita yang tinggal di hunian vertikal[cite: 2]. Langkah kecil dari tiap unit akan berdampak besar bagi keamanan seluruh gedung[cite: 2]:<br><br>• <strong>Penghematan Energi:</strong> Efisiensi penggunaan AC dan lampu di jam-jam non-efektif membantu menekan beban energi kawasan[cite: 2].<br>• <strong>Pengelolaan Sampah:</strong> Memastikan sampah padat tidak dibuang melalui saluran air kamar mandi atau dapur guna mencegah penyumbatan pipa utama gedung[cite: 2]."
+            },
+            {
+                id: 4,
+                title: "Window Nook: Mengubah Sudut Jendela Jadi Oasis Santai & Asri[cite: 2]",
+                category: "Sanctuary",
+                date: "Oktober 2026[cite: 2]",
+                author: "Tenant Relation Riverside Apartment[cite: 2]",
+                image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800",
+                summary: "Unit apartemen tanpa balkon tetap bisa memiliki sudut outdoor-vibe yang estetik dan tenang dengan pencahayaan alami terbaik[cite: 2].",
+                content: "Unit apartemen tanpa balkon tetap bisa memiliki sudut outdoor-vibe yang estetik dan tenang! Sudut jendela utama (bay window / window seat) adalah area dengan pencahayaan alami terbaik yang bisa dioptimalkan[cite: 2].<br><br><strong>Tips Penataan Window Nook:</strong><br>• <strong>Sentuhan Hijau:</strong> Tempatkan beberapa tanaman indoor tahan ruangan ber-AC (seperti Monstera, Snake Plant, atau Peace Lily) di dekat jendela[cite: 2].<br>• <strong>Alas Santai & Cushion:</strong> Bikin tempat duduk empuk dengan penambahan bench kustom atau karpet kecil + bantal santai[cite: 2].<br>• <strong>Pencahayaan & Aksen:</strong> Tambahkan lampu meja berwujud hangat (warm light) untuk suasana syahdu di malam hari[cite: 2]."
+            },
+            {
+                id: 5,
+                title: "Tata Tertib & Etika Hunian: Menjaga Kenyamanan Bersama di Area Publik[cite: 2]",
+                category: "Sanctuary",
+                date: "Oktober 2026[cite: 2]",
+                author: "Tenant Relation Riverside Apartment[cite: 2]",
+                image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800",
+                summary: "Ketentuan etika koridor pada jam istirahat serta aturan ketat pemasangan stiker kendaraan penghuni[cite: 2].",
+                content: "• <strong>Etika Koridor:</strong> Jaga ketenangan pada jam istirahat (22.00 - 06.00 WIB) dan hindari meletakkan barang pribadi/sepatu yang menghalangi jalur evakuasi koridor[cite: 2].<br>• <strong>Aturan Parkir:</strong> Pastikan stiker penghuni terpasang pada kendaraan[cite: 2]. Tamu wajib memarkirkan kendaraan di slot khusus pengunjung yang telah ditentukan[cite: 2]."
+            },
+            {
+                id: 6,
+                title: "Suara & Apresiasi Warga Riverside[cite: 2]",
+                category: "Komunitas",
+                date: "Oktober 2026[cite: 2]",
+                author: "Penghuni Tower A & B[cite: 2]",
+                image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800",
+                summary: "Kata penghuni mengenai kepraktisan sistem reservasi fasilitas digital dan transparansi acara MUAT 2026[cite: 2].",
+                content: "\"Sistem reservasi fasilitas lewat form digital sekarang makin praktis dan rapi. Semoga pemeliharaan area fasilitas terus dipertahankan.\" — <strong>Bpk. D. (Penghuni Tower A)</strong>[cite: 2]<br><br>\"Apresiasi buat tim kebersihan dan keamanan pas acara MUAT kemarin. Semuanya berjalan tertib dan transparan.\" — <strong>Ibu R. (Penghuni Tower B)</strong>[cite: 2]"
+            },
+            {
+                id: 7,
+                title: "Tips & Trik: Unit Aman & Bebas Khawatir Jelang Musim Hujan[cite: 2]",
+                category: "Sanctuary",
+                date: "Oktober 2026[cite: 2]",
+                author: "Tenant Relation Riverside Apartment[cite: 2]",
+                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800",
+                summary: "Panduan praktis cek seal jendela, membersihkan floor drain, hingga pengamanan instalasi gas dan listrik[cite: 2].",
+                content: "• <strong>Cek Seal Jendela:</strong> Periksa karet lis jendela utama dari retak/kebocoran halus untuk mencegah rembesan air saat hujan deras disertai angin[cite: 2].<br>• <strong>Bersihkan Floor Drain:</strong> Kuras saringan saluran air kamar mandi secara berkala dari endapan rambut/sabun agar air mengalir lancar dan bebas bau[cite: 2].<br>• <strong>Pengamanan Gas & Listrik:</strong> Pastikan regulator gas terpasang erat dan cabut steker elektronik non-esensial saat meninggalkan unit dalam kurun waktu lama[cite: 2]."
+            },
+            {
+                id: 8,
+                title: "Agenda & Event Mendatang: November hingga Akhir Tahun 2026[cite: 2]",
+                category: "Redaksi",
+                date: "Oktober 2026[cite: 2]",
+                author: "Operational Management[cite: 2]",
+                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
+                summary: "Jadwal pemeliharaan genset utama, uji coba alat pemadam kebakaran, turnamen olahraga internal, hingga persiapan libur akhir tahun[cite: 2].",
+                content: "<strong>Minggu I November:</strong><br>• Agenda: Pemeliharaan berkala genset utama & uji coba sistem pemadam kebakaran gedung[cite: 2].<br>• Keterangan: Area Publik & Teknik[cite: 2].<br><br><strong>Minggu III November:</strong><br>• Agenda: Kegiatan olahraga kebersamaan warga (Turnamen Bulu Tangkis/Futsal Internal)[cite: 2].<br>• Keterangan: Fasilitas Olahraga[cite: 2].<br><br><strong>Desember:</strong><br>• Agenda: Persiapan pemeliharaan akhir tahun & koordinasi pengamanan libur Natal/Tahun Baru[cite: 2].<br>• Keterangan: Operational Management[cite: 2]."
+            }
+        ];
+
+        let currentCategory = 'Semua';
+
+        function renderArticles(list) {
+            const grid = document.getElementById('articlesGrid');
+            document.getElementById('articleCount').innerText = `${list.length} Artikel`;
+            
+            if (list.length === 0) {
+                grid.innerHTML = `<div class="col-span-3 text-center py-16 text-slate-400 font-medium bg-white rounded-2xl border border-slate-200">Tidak ada artikel atau laporan yang ditemukan.</div>`;
+                return;
+            }
+
+            grid.innerHTML = list.map(item => `
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 flex flex-col justify-between cursor-pointer group" onclick="openArticle(${item.id})">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-slate-900/85 backdrop-blur-md text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">${item.category}</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center text-xs text-slate-500 space-x-2 mb-2 font-medium">
+                                <span>${item.date}</span>
+                                <span>•</span>
+                                <span class="truncate">${item.author}</span>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base mb-2 group-hover:text-blue-600 transition leading-snug line-clamp-2">${item.title}</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">${item.summary}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-0">
+                        <span class="text-xs font-bold text-blue-600 group-hover:underline inline-flex items-center gap-1">
+                            Baca selengkapnya 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.innerText.toUpperCase().includes(cat.toUpperCase()) || (cat === 'Semua' && btn.innerText.includes('Semua'))) {
+                    btn.className = "cat-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white transition shadow-sm whitespace-nowrap";
+                } else {
+                    btn.className = "cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap";
+                }
+            });
+
+            if (cat === 'Semua') {
+                renderArticles(articles);
+            } else {
+                const filtered = articles.filter(a => a.category.toLowerCase() === cat.toLowerCase());
+                renderArticles(filtered);
+            }
+        }
+
+        function filterArticles() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = articles.filter(a => 
+                a.title.toLowerCase().includes(query) || 
+                a.summary.toLowerCase().includes(query) || 
+                a.content.toLowerCase().includes(query)
+            );
+            renderArticles(filtered);
+        }
+
+        function resetFilter() {
+            document.getElementById('searchInput').value = '';
+            filterCategory('Semua');
+        }
+
+        function openArticle(id) {
+            const item = articles.find(a => a.id === id);
+            if (!item) return;
+
+            document.getElementById('modalImage').src = item.image;
+            document.getElementById('modalCategory').innerText = item.category;
+            document.getElementById('modalDate').innerText = item.date;
+            document.getElementById('modalAuthor').innerText = item.author;
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalContent').innerHTML = `<p>${item.content}</p>`;
+
+            document.getElementById('articleModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('articleModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleReportSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reportName').value;
+            const cat = document.getElementById('reportCategory').value;
+            alert(`Terima kasih, ${name}! Laporan dengan kategori "${cat}" telah berhasil dikirimkan ke Tenant Relation Riverside Apartment. Tim kami akan segera menindaklanjuti.`);
+            e.target.reset();
+        }
+
+        // Initialize on load
+        renderArticles(articles);
+    </script>
+</body>
+</html>
