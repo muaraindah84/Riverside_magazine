@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riverside Living Magazine - Portal Berita Warga</title>
+    <title>Riverside Living Magazine - Portal Berita & Warga</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -46,37 +46,42 @@
                 </div>
             </div>
 
-            <!-- Search Bar -->
-            <div class="w-full md:w-80">
-                <div class="relative">
-                    <input type="text" id="searchInput" onkeyup="filterArticles()" placeholder="Cari berita, laporan, atau agenda..." class="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition shadow-inner">
-                    <div class="absolute right-3 top-3 text-slate-400 pointer-events-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </div>
-                </div>
+            <!-- Quick Action Links (Portal Apps & Helpdesk) -->
+            <div class="flex items-center gap-2">
+                <a href="#portalApps" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-full transition flex items-center gap-1.5 border border-slate-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Portal Apps
+                </a>
+                <a href="#laporanWargaSection" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3 py-2 rounded-full transition shadow-sm flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    Lapor Warga
+                </a>
             </div>
         </div>
 
-        <!-- Category Navigation -->
+        <!-- Category Navigation & Search -->
         <nav class="bg-slate-900 text-white border-t border-slate-800 shadow-inner">
-            <div class="max-w-6xl mx-auto px-4 flex space-x-2 overflow-x-auto py-2.5 scrollbar-none">
-                <button onclick="filterCategory('Semua')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white transition shadow-sm whitespace-nowrap">Semua Berita</button>
-                <button onclick="filterCategory('Pengumuman')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Pengumuman</button>
-                <button onclick="filterCategory('Laporan')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Laporan & Kinerja</button>
-                <button onclick="filterCategory('Komunitas')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Komunitas</button>
-                <button onclick="filterCategory('Fasilitas')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Fasilitas & Lingkungan</button>
-                <button onclick="filterCategory('Acara')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Acara Warga</button>
+            <div class="max-w-6xl mx-auto px-4 flex justify-between items-center overflow-x-auto py-2.5 scrollbar-none gap-4">
+                <div class="flex space-x-2 overflow-x-auto scrollbar-none">
+                    <button onclick="filterCategory('Semua')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white transition shadow-sm whitespace-nowrap">Semua Berita</button>
+                    <button onclick="filterCategory('Pengumuman')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Pengumuman</button>
+                    <button onclick="filterCategory('Laporan')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Laporan & Kinerja</button>
+                    <button onclick="filterCategory('Komunitas')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Komunitas</button>
+                    <button onclick="filterCategory('Fasilitas')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Fasilitas</button>
+                    <button onclick="filterCategory('Acara')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white transition whitespace-nowrap">Acara</button>
+                </div>
+                <div class="hidden lg:block w-64 shrink-0">
+                    <input type="text" id="searchInput" onkeyup="filterArticles()" placeholder="Cari berita..." class="w-full bg-slate-800 border border-slate-700 text-white rounded-full py-1.5 pl-3 pr-4 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                </div>
             </div>
         </nav>
     </header>
 
     <!-- Main Content Area -->
-    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
         
         <!-- Featured Hero Section (Article ID 1) -->
-        <div id="heroSection" class="mb-10 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200/80 grid md:grid-cols-2 gap-0 cursor-pointer transition group" onclick="openArticle(1)">
+        <div id="heroSection" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200/80 grid md:grid-cols-2 gap-0 cursor-pointer transition group" onclick="openArticle(1)">
             <div class="relative h-64 md:h-auto overflow-hidden">
                 <img id="heroImage" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800" alt="Hero" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <span id="heroCategory" class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">Pengumuman</span>
@@ -93,26 +98,160 @@
                 </div>
                 <div class="flex items-center text-blue-600 font-bold text-xs uppercase tracking-wider">
                     Baca Selengkapnya 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </div>
             </div>
         </div>
 
-        <!-- Section Title -->
-        <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
-            <h3 id="sectionTitle" class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                Berita & Laporan Terbaru
-            </h3>
-            <span id="articleCount" class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">12 Artikel</span>
-        </div>
+        <!-- Section: Articles Grid -->
+        <section>
+            <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
+                <h3 id="sectionTitle" class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    Berita & Laporan Terbaru
+                </h3>
+                <span id="articleCount" class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">12 Artikel</span>
+            </div>
+            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Dynamic JavaScript Content -->
+            </div>
+        </section>
 
-        <!-- Articles Grid Container -->
-        <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Dynamic JavaScript Content -->
-        </div>
+        <!-- Section: 10 Detik Riverside (Video Feature) -->
+        <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <span class="bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">Shorts / Reels</span>
+                    <h3 class="text-xl font-black mt-2">10 Detik Riverside</h3>
+                    <p class="text-xs text-slate-400">Momen keasrian, kesibukan, dan aktivitas harian di kawasan apartemen.</p>
+                </div>
+                <div class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">Update Rutin Mingguan</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Suasana Pagi di Taman Bougainvillea</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Progress Perbaikan Pintu Masuk Utama</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Kilas Balik Skrining Kesehatan Warga</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Album Kerja & Galeri Foto -->
+        <section>
+            <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
+                <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                    Album Kerja & Galeri Lapangan
+                </h3>
+                <span class="text-xs font-medium text-slate-500">Dokumentasi September 2026</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Cek Sistem Pompa Air</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Perawatan Taman</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Pengaspalan Jalan</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Patroli & Keamanan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Portal Apps Link -->
+        <section id="portalApps" class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-6 md:p-8 text-white shadow-md flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-blue-300 font-bold text-xs uppercase tracking-widest">Ekosistem Digital Riverside</span>
+                <h3 class="text-xl font-black mt-1">Akses Layanan & Aplikasi Warga Lainnya</h3>
+                <p class="text-xs text-slate-300 mt-1">Terhubung langsung dengan sistem pembayaran IPL, booking fasilitas, dan gate parkir digital.</p>
+            </div>
+            <div class="flex flex-wrap gap-3 shrink-0">
+                <a href="#" onclick="alert('Membuka Portal Pembayaran IPL')" class="bg-white text-blue-900 hover:bg-blue-50 font-bold text-xs px-4 py-2.5 rounded-xl transition shadow">Bayar IPL Online</a>
+                <a href="#" onclick="alert('Membuka Sistem Booking Fasilitas')" class="bg-blue-800 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition border border-blue-700">Booking Fasilitas</a>
+            </div>
+        </section>
+
+        <!-- Section: Laporan Warga / Helpdesk Form -->
+        <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="max-w-xl">
+                <span class="bg-red-100 text-red-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Helpdesk Pengurus</span>
+                <h3 class="text-xl font-black text-slate-900 mt-2">Formulir Laporan & Aspirasi Warga</h3>
+                <p class="text-xs text-slate-500 mt-1">Ada fasilitas umum rusak, lampu mati, atau masukan untuk pengelolaan? Laporkan langsung di sini.</p>
+            </div>
+            <form onsubmit="handleReportSubmit(event)" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni</label>
+                    <input type="text" id="reportName" required placeholder="Contoh: Bpk. Budi / Tower 1A-05" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Kendala</label>
+                    <select id="reportCategory" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <option>Fasilitas Umum & Kerusakan</option>
+                        <option>Kebersihan & Taman</option>
+                        <option>Keamanan & Ketertiban</option>
+                        <option>Parkir & Kendaraan</option>
+                        <option>Lainnya</option>
+                    </select>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Detail Laporan / Pesan</label>
+                    <textarea id="reportMessage" rows="3" required placeholder="Jelaskan kendala atau masukan Anda secara jelas..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Laporan ke Tenant Relation</button>
+                </div>
+            </form>
+        </section>
+
     </main>
 
     <!-- Article Detail Modal -->
@@ -317,9 +456,7 @@
                     <div class="px-5 pb-5 pt-0">
                         <span class="text-xs font-bold text-blue-600 group-hover:underline inline-flex items-center gap-1">
                             Baca selengkapnya 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </span>
                     </div>
                 </div>
@@ -328,7 +465,6 @@
 
         function filterCategory(cat) {
             currentCategory = cat;
-            
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 if (btn.innerText.toUpperCase().includes(cat.toUpperCase()) || (cat === 'Semua' && btn.innerText.includes('Semua'))) {
                     btn.className = "cat-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white transition shadow-sm whitespace-nowrap";
@@ -378,6 +514,14 @@
         function closeModal() {
             document.getElementById('articleModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
+        }
+
+        function handleReportSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reportName').value;
+            const cat = document.getElementById('reportCategory').value;
+            alert(`Terima kasih, ${name}! Laporan dengan kategori "${cat}" telah berhasil dikirimkan ke Tenant Relation Riverside Apartment. Tim kami akan segera menindaklanjuti.`);
+            e.target.reset();
         }
 
         // Initialize on load
