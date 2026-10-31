@@ -49,7 +49,7 @@
                 </a>
                 <a href="#laporanWargaSection" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3 py-2 rounded-full transition shadow-sm flex items-center gap-1.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                    Lapor Warga
+                    Kotak Saran
                 </a>
             </div>
         </div>
@@ -215,39 +215,53 @@
             </div>
         </section>
 
-        <!-- Section: Laporan Warga / Helpdesk Form -->
+        <!-- Section: Kotak Aspirasi & Saran Warga (Formspree Ready) -->
         <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
             <div class="max-w-xl">
-                <span class="bg-red-100 text-red-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Helpdesk Pengurus</span>
-                <h3 class="text-xl font-black text-slate-900 mt-2">Formulir Laporan & Aspirasi Warga</h3>
-                <p class="text-xs text-slate-500 mt-1">Ada fasilitas umum rusak, lampu mati, atau masukan untuk pengelolaan? Laporkan langsung di sini.</p>
+                <span class="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Partisipasi Warga</span>
+                <h3 class="text-xl font-black text-slate-900 mt-2">Kotak Saran, Kritik & Aspirasi</h3>
+                <p class="text-xs text-slate-500 mt-1">Punya ide untuk kemajuan lingkungan Riverside, masukan rubrik majalah, atau kritik membangun? Sampaikan di sini untuk bahan evaluasi bersama.</p>
             </div>
-            <form onsubmit="handleReportSubmit(event)" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Ganti action dengan endpoint Formspree Anda, contoh: action="https://formspree.io/f/xyzabcdef" -->
+            <form action="https://formspree.io/f/KODEFMRANDANAMUNCUL" method="POST" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni</label>
-                    <input type="text" id="reportName" required placeholder="Contoh: Bpk. Budi / Tower A-05" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni (Opsional)</label>
+                    <input type="text" name="nama_warga" placeholder="Contoh: Bpk. Budi / Tower A-05" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Kendala</label>
-                    <select id="reportCategory" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-                        <option>Fasilitas Umum & Kerusakan</option>
-                        <option>Kebersihan & Taman</option>
-                        <option>Keamanan & Ketertiban</option>
-                        <option>Parkir & Kendaraan</option>
-                        <option>Lainnya</option>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Masukan</label>
+                    <select name="kategori" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <option>Saran & Ide Pengelolaan</option>
+                        <option>Masukan Konten / Rubrik Majalah</option>
+                        <option>Kritik Konstruktif Fasilitas</option>
+                        <option>Apresiasi / Lainnya</option>
                     </select>
                 </div>
                 <div class="md:col-span-2">
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Detail Laporan / Pesan</label>
-                    <textarea id="reportMessage" rows="3" required placeholder="Jelaskan kendala atau masukan Anda secara jelas..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Pesan / Saran Anda</label>
+                    <textarea name="pesan" rows="3" required placeholder="Tuliskan saran, kritik membangun, atau ide Anda di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
                 </div>
                 <div class="md:col-span-2">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Laporan ke Tenant Relation</button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Saran & Aspirasi</button>
                 </div>
             </form>
         </section>
 
     </main>
+
+    <!-- Floating Action Button: Kotak Saran Warga (Kanan Bawah) -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#laporanWargaSection" class="group flex items-center gap-2 bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-md px-4 py-3 rounded-full shadow-2xl border border-white/20 transition-all duration-300 hover:scale-105">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+            </span>
+            <span class="text-xs font-bold tracking-wide">Kotak Saran Warga</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400 transform group-hover:translate-x-0.5 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+    </div>
 
     <!-- Article Detail Modal -->
     <div id="articleModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-all">
@@ -306,7 +320,8 @@
                 image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
                 summary: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Edisi kali ini merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas selama September & Oktober 2026.",
                 content: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Hadir kembali di hadapan Bapak/Ibu sekalian, Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11). Edisi kali ini kami hadirkan secara istimewa dengan konten yang lebih padat, merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas kita selama dua bulan berturut-turut (September & Oktober 2026). Berbagai momen krusial telah kita lalui bersama, salah satunya adalah agenda Musyawarah Umum Anggota Tahunan (MUAT) 2026 yang berlangsung dengan hangat dan penuh semangat keterbukaan. Di saat yang sama, pemeliharaan rutin gedung serta modernisasi layanan digital—seperti sistem reservasi fasilitas berbasis QR—terus ditingkatkan demi kenyamanan bersama. Melalui edisi ini, kami mengajak seluruh warga untuk terus menjaga keasrian, kebersihan, serta keharmonisan di lingkungan Riverside. Selamat membaca!"
-            },{
+            },
+            {
                 id: 2,
                 title: "Laporan Kinerja & Album Kerja: Rekapitulasi September & Oktober 2026",
                 category: "Laporan",
@@ -328,7 +343,7 @@
                         <div class="flex overflow-x-auto space-x-3 pb-3 scrollbar-none">
                             <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Foto 1">
                             <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Foto 2">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Foto 3">
+                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Foto 3">
                         </div>
                         <p class="text-[11px] text-slate-400 italic mt-1">&rarr; Geser ke samping untuk melihat foto dokumentasi lainnya</p>
                     </div>
@@ -485,14 +500,6 @@
         function closeModal() {
             document.getElementById('articleModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
-        }
-
-        function handleReportSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('reportName').value;
-            const cat = document.getElementById('reportCategory').value;
-            alert(`Terima kasih, ${name}! Laporan dengan kategori "${cat}" telah berhasil dikirimkan ke Tenant Relation Riverside Apartment. Tim kami akan segera menindaklanjuti.`);
-            e.target.reset();
         }
 
         // Initialize on load
