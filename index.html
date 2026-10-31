@@ -12,6 +12,37 @@
         ::-webkit-scrollbar { height: 4px; width: 4px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Styling Brand Badge P3SRS */
+        .header-brand-badge {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            padding: 8px 18px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+        .brand-sub {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            color: #2563eb;
+            text-transform: uppercase;
+            display: block;
+        }
+        .brand-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+        @media (min-width: 768px) {
+            .header-brand-badge {
+                text-align: right;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
@@ -32,6 +63,8 @@
     <!-- Main Header / Navbar -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm backdrop-blur-md bg-white/95">
         <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <!-- Logo & Nama Majalah -->
             <div class="flex items-center space-x-3 cursor-pointer group" onclick="resetFilter()">
                 <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-sm shrink-0">
                     <img src="Akal Studio (1).png" alt="Logo Riverside" class="w-full h-full object-cover">
@@ -42,16 +75,12 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-2">
-                <a href="#portalApps" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-full transition flex items-center gap-1.5 border border-slate-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    Portal Apps
-                </a>
-                <a href="#laporanWargaSection" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3 py-2 rounded-full transition shadow-sm flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                    Kotak Saran
-                </a>
+            <!-- Pengganti Tombol: Teks Brand P3SRS Apartemen Muara Indah -->
+            <div class="header-brand-badge w-full md:w-auto">
+                <span class="brand-sub">P3SRS</span>
+                <h2 class="brand-title">Apartemen Muara Indah</h2>
             </div>
+
         </div>
 
         <!-- Category Navigation & Search -->
@@ -71,33 +100,48 @@
             </div>
         </nav>
     </header>
-
     <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
         
-        <!-- Featured Hero Section (Article ID 1) -->
-        <div id="heroSection" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200/80 grid md:grid-cols-2 gap-0 cursor-pointer transition group" onclick="openArticle(1)">
-            <div class="relative h-64 md:h-auto overflow-hidden">
-                <img id="heroImage" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" alt="Hero" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span id="heroCategory" class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">Salam Redaksi</span>
+        <!-- Featured Hero Section (Article ID 1) dengan Foto Apartemen -->
+        <div id="heroSection" class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-slate-100 grid md:grid-cols-2 gap-0 cursor-pointer transition-all duration-300 group" onclick="openArticle(1)">
+            
+            <!-- Bagian Foto Gedung Muara Indah -->
+            <div class="relative h-72 md:h-auto overflow-hidden bg-slate-900">
+                <img id="heroImage" src="WhatsApp Image 2026-08-11 at 15.07.08.jpeg" alt="Apartemen Muara Indah Riverside" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out opacity-95 group-hover:opacity-100">
+                
+                <!-- Gradient Overlay untuk versi mobile -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:hidden"></div>
+
+                <!-- Badge Kategori -->
+                <span id="heroCategory" class="absolute top-4 left-4 bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg border border-white/20">
+                    Salam Redaksi
+                </span>
             </div>
-            <div class="p-6 md:p-8 flex flex-col justify-between bg-gradient-to-br from-white to-slate-50">
+
+            <!-- Bagian Konten Teks -->
+            <div class="p-6 md:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-slate-50 to-blue-50/30">
                 <div>
-                    <div class="flex items-center text-xs text-slate-500 space-x-2 mb-2 font-medium">
-                        <span id="heroDate">Oktober – November 2026</span>
+                    <div class="flex items-center text-xs text-slate-500 space-x-2 mb-3 font-semibold">
+                        <span id="heroDate" class="text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">Oktober – November 2026</span>
                         <span>•</span>
-                        <span id="heroAuthor">Tenant Relation Riverside Apartment</span>
+                        <span id="heroAuthor">Tenant Relation Riverside</span>
                     </div>
-                    <h2 id="heroTitle" class="text-xl md:text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug">Menyambung Langkah, Mempererat Kebersamaan</h2>
-                    <p id="heroSummary" class="text-slate-600 text-sm leading-relaxed mb-4">Hadir kembali Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11) merangkum perjalanan pengelolaan, evaluasi operasional, dan dinamika komunitas.</p>
+                    <h2 id="heroTitle" class="text-xl md:text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug tracking-tight">
+                        Menyambung Langkah, Mempererat Kebersamaan
+                    </h2>
+                    <p id="heroSummary" class="text-slate-600 text-sm leading-relaxed mb-6 font-normal">
+                        Hadir kembali Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11) merangkum perjalanan pengelolaan, evaluasi operasional, dan dinamika komunitas hunian kita tercinta.
+                    </p>
                 </div>
-                <div class="flex items-center text-blue-600 font-bold text-xs uppercase tracking-wider">
+                <div class="flex items-center text-blue-600 font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition duration-300">
                     Baca Selengkapnya 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                    </svg>
                 </div>
             </div>
         </div>
-
         <!-- Section: Articles Grid -->
         <section>
             <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
