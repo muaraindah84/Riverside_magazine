@@ -118,37 +118,25 @@
     <!-- SIDEBAR OVERLAY -->
     <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-50 hidden transition-opacity opacity-0"></div>
 
-    <!-- SIDEBAR PANEL "WOW" (Cuaca, Kategori, Traffic, & Plan Project MUAT 2026) -->
+    <!-- SIDEBAR PANEL "WOW" -->
     <aside id="sidebarPanel" class="fixed top-0 left-0 bottom-0 w-80 sm:w-96 bg-slate-950 text-slate-100 z-50 transform -translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col justify-between border-r border-slate-800">
-        
-        <!-- Header Sidebar -->
         <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/80 backdrop-blur">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl overflow-hidden bg-blue-600 flex items-center justify-center shadow-inner font-black text-white text-sm">
-                    RR
-                </div>
+                <div class="w-10 h-10 rounded-xl overflow-hidden bg-blue-600 flex items-center justify-center shadow-inner font-black text-white text-sm">RR</div>
                 <div>
                     <h3 class="text-xs font-black tracking-wider text-white uppercase">Riverside Control Hub</h3>
                     <p class="text-[10px] text-amber-400 font-bold uppercase tracking-widest">P3SRS Muara Indah</p>
                 </div>
             </div>
             <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
         </div>
-
-        <!-- Konten Utama Sidebar -->
         <div class="p-5 space-y-6 overflow-y-auto max-h-[calc(100vh-140px)] scrollbar-none">
-            
-            <!-- 1. Live Status Cuaca & Taman -->
             <div class="bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-500/30 rounded-2xl p-4 shadow-lg">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-[10px] font-extrabold tracking-widest text-blue-400 uppercase">Kawasan Muara Indah</span>
-                    <span class="flex items-center gap-1 text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Asri & Sejuk
-                    </span>
+                    <span class="flex items-center gap-1 text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Asri & Sejuk</span>
                 </div>
                 <div class="flex justify-between items-end">
                     <div>
@@ -160,108 +148,28 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 2. Navigasi Kategori Cepat -->
             <div>
                 <p class="text-[10px] font-black tracking-widest text-slate-500 uppercase mb-3 px-1">Pilih Rubrik Majalah</p>
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="toggleSidebar(); filterCategory('Semua');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
-                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">📚 Semua</span>
-                        <span class="text-[10px] text-slate-400">Semua Artikel</span>
-                    </button>
-                    <button onclick="toggleSidebar(); filterCategory('Redaksi');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
-                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">📢 Redaksi</span>
-                        <span class="text-[10px] text-slate-400">Salam Utama</span>
-                    </button>
-                    <button onclick="toggleSidebar(); filterCategory('Laporan');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
-                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">🛠️ Laporan</span>
-                        <span class="text-[10px] text-slate-400">Album Lapangan</span>
-                    </button>
-                    <button onclick="toggleSidebar(); filterCategory('Komunitas');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
-                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">✨ Spotlight</span>
-                        <span class="text-[10px] text-slate-400">Warga & UMKM</span>
-                    </button>
+                    <button onclick="toggleSidebar(); filterCategory('Semua');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">📚 Semua</span><span class="text-[10px] text-slate-400">Semua Artikel</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Redaksi');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">📢 Redaksi</span><span class="text-[10px] text-slate-400">Salam Utama</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Laporan');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">🛠️ Laporan</span><span class="text-[10px] text-slate-400">Album Lapangan</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Komunitas');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">✨ Spotlight</span><span class="text-[10px] text-slate-400">Warga & UMKM</span></button>
                 </div>
             </div>
-
-            <!-- 3. Update Lalu Lintas Terkini -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-[10px] font-black tracking-widest text-amber-400 uppercase flex items-center gap-1.5">
-                        🚗 Lalu Lintas Akses Utama
-                    </span>
-                    <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Lancar</span>
-                </div>
-                <div class="space-y-2 text-xs">
-                    <div class="flex justify-between items-center text-slate-300 border-b border-slate-800/80 pb-2">
-                        <span>Gate Utama (Jl. Raya)</span>
-                        <span class="text-emerald-400 font-bold">Lancar Jaya</span>
-                    </div>
-                    <div class="flex justify-between items-center text-slate-300 pb-1">
-                        <span>Area Drop-off & Parkir Basement</span>
-                        <span class="text-amber-400 font-bold">Normal / Padat</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. List Plan Project Riverside (Hasil MUAT 2026) -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-[10px] font-black tracking-widest text-blue-400 uppercase flex items-center gap-1.5">
-                        📋 Plan Project (MUAT 2026)
-                    </span>
-                    <span class="text-[9px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-bold">Progress</span>
-                </div>
-                <div class="space-y-3 text-xs">
-                    <div>
-                        <div class="flex justify-between text-slate-200 font-medium mb-1">
-                            <span>Modernisasi Gate & QR Parkir</span>
-                            <span class="text-emerald-400 font-bold">85%</span>
-                        </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full w-[85%]"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-slate-200 font-medium mb-1">
-                            <span>Revitalisasi Taman & Jalur Hijau</span>
-                            <span class="text-blue-400 font-bold">70%</span>
-                        </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-blue-500 h-full w-[70%]"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-slate-200 font-medium mb-1">
-                            <span>Audit & Peremajaan Genset Gedung</span>
-                            <span class="text-amber-400 font-bold">On-Progress</span>
-                        </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-amber-500 h-full w-[45%]"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
-        <!-- Footer Sidebar -->
-        <div class="p-4 bg-slate-900 border-t border-slate-800 text-[11px] text-center text-slate-500 font-medium">
-            Riverside Living Magazine &copy; 2026
-        </div>
+        <div class="p-4 bg-slate-900 border-t border-slate-800 text-[11px] text-center text-slate-500 font-medium">Riverside Living Magazine &copy; 2026</div>
     </aside>
 
     <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
         
-        <!-- Featured Hero Section (Article ID 1) -->
+        <!-- Featured Hero Section -->
         <div id="heroSection" class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-slate-100 grid md:grid-cols-2 gap-0 cursor-pointer transition-all duration-300 group" onclick="openArticle(1)">
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-900">
                 <img id="heroImage" src="Featured Hero.jpeg" alt="Apartemen Muara Indah Riverside" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out opacity-95 group-hover:opacity-100">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:hidden"></div>
-                <span id="heroCategory" class="absolute top-4 left-4 bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg border border-white/20">
-                    Salam Redaksi
-                </span>
+                <span id="heroCategory" class="absolute top-4 left-4 bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg border border-white/20">Salam Redaksi</span>
             </div>
             <div class="p-6 md:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-slate-50 to-blue-50/30">
                 <div>
@@ -270,18 +178,12 @@
                         <span>•</span>
                         <span id="heroAuthor">Tenant Relation Riverside</span>
                     </div>
-                    <h2 id="heroTitle" class="text-xl md:text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug tracking-tight">
-                        Menyambung Langkah, Mempererat Kebersamaan
-                    </h2>
-                    <p id="heroSummary" class="text-slate-600 text-sm leading-relaxed mb-6 font-normal">
-                        Hadir kembali Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11) merangkum perjalanan pengelolaan, evaluasi operasional, dan dinamika komunitas hunian kita tercinta.
-                    </p>
+                    <h2 id="heroTitle" class="text-xl md:text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug tracking-tight">Menyambung Langkah, Mempererat Kebersamaan</h2>
+                    <p id="heroSummary" class="text-slate-600 text-sm leading-relaxed mb-6 font-normal">Hadir kembali Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11) merangkum perjalanan pengelolaan, evaluasi operasional, dan dinamika komunitas hunian kita tercinta.</p>
                 </div>
                 <div class="flex items-center text-blue-600 font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition duration-300">
                     Baca Selengkapnya 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </div>
             </div>
         </div>
@@ -295,9 +197,7 @@
                 </h3>
                 <span id="articleCount" class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">8 Artikel</span>
             </div>
-            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Dynamic JavaScript Content -->
-            </div>
+            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
         </section>
 
         <!-- Rubrik Khusus Paten 1: Spotlight Warga & UMKM Lokal -->
@@ -310,7 +210,6 @@
                 </div>
                 <span class="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200">Edisi 10 & 11</span>
             </div>
-
             <div class="grid md:grid-cols-3 gap-6 items-center">
                 <div class="relative rounded-2xl overflow-hidden h-56 shadow-md group">
                     <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600" alt="Spotlight UMKM" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -332,17 +231,15 @@
             </div>
         </section>
 
-        <!-- Rubrik Khusus Paten 2: Mini Polling / Survey Kepuasan Penghuni -->
+        <!-- Rubrik Khusus Paten 2: Mini Polling -->
         <section class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
             <div class="max-w-xl mb-6">
                 <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Suara Warga Interaktif</span>
                 <h3 class="text-xl font-black text-slate-900 mt-2">📊 Mini Polling Kepuasan Penghuni</h3>
                 <p class="text-xs text-slate-500 mt-1">Bantu pengelola mengevaluasi kenyamanan kawasan kita bulan ini melalui jajak pendapat singkat berikut.</p>
             </div>
-
             <div id="pollingContainer" class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80">
                 <p class="font-bold text-slate-800 text-sm md:text-base mb-4">Bagaimana penilaian umum Anda terhadap keasrian taman, kebersihan koridor, & ketertiban fasilitas bulan ini?</p>
-                
                 <div class="space-y-3 mb-6" id="pollingOptions">
                     <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
                         <input type="radio" name="kepuasan_warga" value="Sangat Asri" class="text-blue-600 focus:ring-blue-500">
@@ -357,63 +254,7 @@
                         <span class="text-xs md:text-sm font-medium text-slate-700">Perlu Peningkatan / Perbaikan Lebih Lanjut</span>
                     </label>
                 </div>
-
-                <button onclick="submitPolling()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow-md">
-                    Kirim Partisipasi Suara
-                </button>
-            </div>
-        </section>
-
-        <!-- Section: 10 Detik Riverside (Video Feature) -->
-        <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-md">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <div>
-                    <span class="bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">Shorts / Reels</span>
-                    <h3 class="text-xl font-black mt-2">10 Detik Riverside</h3>
-                    <p class="text-xs text-slate-400">Momen keasrian, kesibukan, dan aktivitas harian di kawasan apartemen.</p>
-                </div>
-                <div class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">Update Rutin Double Edition</div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-                    <div class="relative z-10 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
-                            <h4 class="text-sm font-bold text-white">Suasana MUAT 2026 Apartemen Riverside</h4>
-                        </div>
-                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-                    <div class="relative z-10 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
-                            <h4 class="text-sm font-bold text-white">Keasrian Taman & Tanaman Bougainvillea</h4>
-                        </div>
-                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
-                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="absolute inset-w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-                    <div class="relative z-10 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
-                            <h4 class="text-sm font-bold text-white">Sudut Jendela Window Nook Estetik</h4>
-                        </div>
-                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
-                    </div>
-                </div>
+                <button onclick="submitPolling()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow-md">Kirim Partisipasi Suara</button>
             </div>
         </section>
 
@@ -429,41 +270,20 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                        <p class="text-xs text-white font-bold">Perawatan Pompa Air</p>
-                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Perawatan Pompa Air</p></div>
                 </div>
                 <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                        <p class="text-xs text-white font-bold">Pelaksanaan MUAT 2026</p>
-                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Pelaksanaan MUAT 2026</p></div>
                 </div>
                 <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                        <p class="text-xs text-white font-bold">Penataan Taman Warga</p>
-                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Penataan Taman Warga</p></div>
                 </div>
                 <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                        <p class="text-xs text-white font-bold">Sistem QR & Gate Parkir</p>
-                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Sistem QR & Gate Parkir</p></div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section: Portal Apps Link -->
-        <section id="portalApps" class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-6 md:p-8 text-white shadow-md flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <span class="text-blue-300 font-bold text-xs uppercase tracking-widest">Ekosistem Digital Riverside</span>
-                <h3 class="text-xl font-black mt-1">Akses Layanan & Aplikasi Warga Lainnya</h3>
-                <p class="text-xs text-slate-300 mt-1">Terhubung langsung dengan sistem reservasi fasilitas berbasis QR, pembayaran IPL, dan gate parkir digital.</p>
-            </div>
-            <div class="flex flex-wrap gap-3 shrink-0">
-                <a href="#" onclick="alert('Membuka Sistem Reservasi Fasilitas QR')" class="bg-white text-blue-900 hover:bg-blue-50 font-bold text-xs px-4 py-2.5 rounded-xl transition shadow">Reservasi QR</a>
-                <a href="#" onclick="alert('Membuka Portal Pembayaran IPL')" class="bg-blue-800 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition border border-blue-700">Bayar IPL Online</a>
             </div>
         </section>
 
@@ -500,17 +320,11 @@
 
     </main>
 
-    <!-- Floating Action Button: Kotak Saran Warga -->
+    <!-- Floating Action Button -->
     <div class="fixed bottom-6 right-6 z-50">
         <a href="#laporanWargaSection" class="group flex items-center gap-2 bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-md px-4 py-3 rounded-full shadow-2xl border border-white/20 transition-all duration-300 hover:scale-105">
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
-            </span>
+            <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span></span>
             <span class="text-xs font-bold tracking-wide">Kotak Saran Warga</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400 transform group-hover:translate-x-0.5 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
         </a>
     </div>
 
@@ -523,39 +337,15 @@
                 <span id="modalCategory" class="absolute bottom-4 left-4 bg-blue-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow"></span>
             </div>
             <div class="p-6 md:p-8">
-                <div class="flex items-center space-x-2 text-xs text-slate-500 mb-3 font-medium">
-                    <span id="modalDate"></span>
-                    <span>•</span>
-                    <span id="modalAuthor"></span>
-                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-500 mb-3 font-medium"><span id="modalDate"></span><span>•</span><span id="modalAuthor"></span></div>
                 <h2 id="modalTitle" class="text-xl md:text-2xl font-black text-slate-900 mb-4 leading-snug"></h2>
                 <div id="modalContent" class="text-slate-700 text-sm md:text-base leading-relaxed space-y-4 border-t border-slate-100 pt-4"></div>
             </div>
         </div>
     </div>
 
-    <!-- Emergency Footer Widget -->
-    <section class="bg-slate-900 text-white py-10 border-t border-slate-800 mt-16 shadow-inner">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-                <h4 class="font-black text-amber-500 mb-3 uppercase text-xs tracking-widest">Darurat & Bantuan</h4>
-                <p class="text-xs text-slate-400 mb-3 leading-relaxed">Layanan pengaduan dan bantuan darurat 24 jam untuk seluruh penghuni Muara Indah Riverside.</p>
-                <div class="text-sm font-bold text-slate-200">Security Lobby: <span class="text-amber-400">Ext. 101 / WhatsApp Operational</span></div>
-            </div>
-            <div>
-                <h4 class="font-black text-amber-500 mb-3 uppercase text-xs tracking-widest">Kontak Pengelola</h4>
-                <p class="text-xs text-slate-300 font-medium">Customer Service Management Office</p>
-                <p class="text-xs text-slate-400 mt-1">Tenant Relation: 0881-1852-908</p>
-            </div>
-            <div class="flex flex-col justify-center items-center md:items-end">
-                <h4 class="font-black text-amber-500 mb-3 uppercase text-xs tracking-widest">Riverside Living</h4>
-                <p class="text-xs text-slate-400 text-center md:text-right leading-relaxed">Dua Bulan, Satu Semangat.<br>Transparansi, Kenyamanan, & Keasrian Hunian.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Copyright -->
-    <footer class="bg-slate-950 text-slate-500 text-xs py-4 text-center border-t border-slate-900 font-medium">
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 text-xs py-4 text-center border-t border-slate-900 font-medium mt-16">
         <p>&copy; 2026 Riverside Living Magazine (Double Edition Edisi 10 & 11). All rights reserved.</p>
     </footer>
 
@@ -635,12 +425,7 @@
                 category: "Komunitas",
                 date: "Oktober – November 2026",
                 author: "Penghuni Tower A & B",
-                image: [
-                    "MUAT 01 RLM.jpeg",
-                    "MUAT 02 RLM.jpeg",
-                    "MUAT 03 RLM.jpeg",
-                    "MUAT 04 RLM.jpeg"
-                ],
+                image: "MUAT 01 RLM.jpeg",
                 summary: "Apresiasi kesuksesan Musyawarah Umum Anggota (MUAT) 2026 serta catatan penting warga terkait kebersihan lift dan kestabilan CCTV.",
                 content: `
                     Kehidupan di hunian vertikal menuntut keseimbangan antara apresiasi atas kemajuan bersama dan kepedulian terhadap fasilitas publik. Sepanjang periode ini, suara dari para penghuni di Tower A dan Tower B merangkum dua hal penting: harapan besar pasca-MUAT dan teguran konstruktif untuk kenyamanan bersama.<br><br>
@@ -650,8 +435,19 @@
                     
                     <strong>2. Catatan Kritis: Kebersihan Lift & Stabilitas CCTV</strong><br>
                     Di sisi lain, warga melayangkan komplain tegas atas temuan yang meresahkan, seperti adanya air ludah di dalam lift. Kondisi ini diperparah oleh fungsi CCTV yang kurang stabil, sehingga menyulitkan pengelola untuk melacak oknum penghuni yang kurang peduli terhadap kebersihan dan kesehatan lingkungan bersama.<br><br>
-                    <em>"Kepedulian terhadap fasilitas bersama adalah cerminan kualitas kita sebagai tetangga. Mari saling mengingatkan dan menjaga kebersihan lift serta fasilitas publik demi kesehatan seluruh penghuni,"</em> ujar salah satu perwakilan warga.
-    `
+                    <em>"Kepedulian terhadap fasilitas bersama adalah cerminan kualitas kita sebagai tetangga. Mari saling mengingatkan dan menjaga kebersihan lift serta fasilitas publik demi kesehatan seluruh penghuni,"</em> ujar salah satu perwakilan warga.<br><br>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200">
+                        <p class="mb-3 font-extrabold text-sm text-slate-900 uppercase tracking-wider">Galeri Foto Dokumentasi MUAT 2026:</p>
+                        <div class="flex overflow-x-auto space-x-3 pb-3 scrollbar-none">
+                            <img src="MUAT 01 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 1">
+                            <img src="MUAT 02 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 2">
+                            <img src="MUAT 03 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 3">
+                            <img src="MUAT 04 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 4">
+                        </div>
+                        <p class="text-[11px] text-slate-400 italic mt-1">&rarr; Geser ke samping untuk melihat foto dokumentasi lainnya</p>
+                    </div>
+                `
             },
             {
                 id: 7,
@@ -766,11 +562,9 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Fungsi Toggle Sidebar WOW
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebarPanel');
             const overlay = document.getElementById('sidebarOverlay');
-            
             if (sidebar.classList.contains('-translate-x-full')) {
                 sidebar.classList.remove('-translate-x-full');
                 overlay.classList.remove('hidden');
@@ -784,7 +578,6 @@
             }
         }
 
-        // Fungsi Submit Mini Polling Warga
         function submitPolling() {
             const selected = document.querySelector('input[name="kepuasan_warga"]:checked');
             if (!selected) {
