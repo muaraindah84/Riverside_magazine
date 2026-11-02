@@ -64,18 +64,32 @@
     <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm backdrop-blur-md bg-white/95">
         <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
             
-            <!-- Logo & Nama Majalah -->
-            <div class="flex items-center space-x-3 cursor-pointer group" onclick="resetFilter()">
-                <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-sm shrink-0">
-                    <img src="Akal Studio (1).png" alt="Logo Riverside" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h1 class="text-xl font-black tracking-tight text-slate-900 group-hover:text-blue-900 transition uppercase leading-tight">RIVERSIDE <span class="text-amber-600 font-bold">LIVING</span></h1>
-                    <p class="text-[10px] text-slate-500 font-semibold tracking-widest uppercase">Double Edition Portal & Magazine</p>
+            <!-- Logo, Hamburger Menu & Nama Majalah -->
+            <div class="flex items-center space-x-3 w-full md:w-auto justify-between md:justify-start">
+                <div class="flex items-center space-x-3">
+                    <!-- Tombol Hamburger Sidebar WOW -->
+                    <button onclick="toggleSidebar()" class="group relative px-3 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <span class="text-xs font-black uppercase tracking-wider hidden sm:inline">Hub</span>
+                    </button>
+
+                    <div class="w-11 h-11 rounded-full overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-sm shrink-0 cursor-pointer" onclick="resetFilter()">
+                        <img src="Akal Studio (1).png" alt="Logo Riverside" class="w-full h-full object-cover">
+                    </div>
+                    <div class="cursor-pointer" onclick="resetFilter()">
+                        <h1 class="text-lg md:text-xl font-black tracking-tight text-slate-900 group-hover:text-blue-900 transition uppercase leading-tight">RIVERSIDE <span class="text-amber-600 font-bold">LIVING</span></h1>
+                        <p class="text-[9px] text-slate-500 font-semibold tracking-widest uppercase">Double Edition Portal</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Pengganti Tombol: Teks Brand P3SRS Apartemen Muara Indah -->
+            <!-- Brand Badge P3SRS Apartemen Muara Indah -->
             <div class="header-brand-badge w-full md:w-auto">
                 <span class="brand-sub">P3SRS</span>
                 <h2 class="brand-title">Apartemen Muara Indah</h2>
@@ -100,26 +114,155 @@
             </div>
         </nav>
     </header>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-50 hidden transition-opacity opacity-0"></div>
+
+    <!-- SIDEBAR PANEL "WOW" (Cuaca, Kategori, Traffic, & Plan Project MUAT 2026) -->
+    <aside id="sidebarPanel" class="fixed top-0 left-0 bottom-0 w-80 sm:w-96 bg-slate-950 text-slate-100 z-50 transform -translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col justify-between border-r border-slate-800">
+        
+        <!-- Header Sidebar -->
+        <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/80 backdrop-blur">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl overflow-hidden bg-blue-600 flex items-center justify-center shadow-inner font-black text-white text-sm">
+                    RR
+                </div>
+                <div>
+                    <h3 class="text-xs font-black tracking-wider text-white uppercase">Riverside Control Hub</h3>
+                    <p class="text-[10px] text-amber-400 font-bold uppercase tracking-widest">P3SRS Muara Indah</p>
+                </div>
+            </div>
+            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Konten Utama Sidebar -->
+        <div class="p-5 space-y-6 overflow-y-auto max-h-[calc(100vh-140px)] scrollbar-none">
+            
+            <!-- 1. Live Status Cuaca & Taman -->
+            <div class="bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-500/30 rounded-2xl p-4 shadow-lg">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-[10px] font-extrabold tracking-widest text-blue-400 uppercase">Kawasan Muara Indah</span>
+                    <span class="flex items-center gap-1 text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Asri & Sejuk
+                    </span>
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <h4 class="text-lg font-black text-white">28°C • Berawan</h4>
+                        <p class="text-[11px] text-slate-400">Kelembapan Udara 75%</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] text-amber-400 font-bold bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/20">Air Taman: ON</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Navigasi Kategori Cepat -->
+            <div>
+                <p class="text-[10px] font-black tracking-widest text-slate-500 uppercase mb-3 px-1">Pilih Rubrik Majalah</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="toggleSidebar(); filterCategory('Semua');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
+                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">📚 Semua</span>
+                        <span class="text-[10px] text-slate-400">Semua Artikel</span>
+                    </button>
+                    <button onclick="toggleSidebar(); filterCategory('Redaksi');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
+                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">📢 Redaksi</span>
+                        <span class="text-[10px] text-slate-400">Salam Utama</span>
+                    </button>
+                    <button onclick="toggleSidebar(); filterCategory('Laporan');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
+                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">🛠️ Laporan</span>
+                        <span class="text-[10px] text-slate-400">Album Lapangan</span>
+                    </button>
+                    <button onclick="toggleSidebar(); filterCategory('Komunitas');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group">
+                        <span class="text-xs font-bold text-white group-hover:text-blue-400 block">✨ Spotlight</span>
+                        <span class="text-[10px] text-slate-400">Warga & UMKM</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. Update Lalu Lintas Terkini -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-black tracking-widest text-amber-400 uppercase flex items-center gap-1.5">
+                        🚗 Lalu Lintas Akses Utama
+                    </span>
+                    <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Lancar</span>
+                </div>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center text-slate-300 border-b border-slate-800/80 pb-2">
+                        <span>Gate Utama (Jl. Raya)</span>
+                        <span class="text-emerald-400 font-bold">Lancar Jaya</span>
+                    </div>
+                    <div class="flex justify-between items-center text-slate-300 pb-1">
+                        <span>Area Drop-off & Parkir Basement</span>
+                        <span class="text-amber-400 font-bold">Normal / Padat</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. List Plan Project Riverside (Hasil MUAT 2026) -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-black tracking-widest text-blue-400 uppercase flex items-center gap-1.5">
+                        📋 Plan Project (MUAT 2026)
+                    </span>
+                    <span class="text-[9px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-bold">Progress</span>
+                </div>
+                <div class="space-y-3 text-xs">
+                    <div>
+                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                            <span>Modernisasi Gate & QR Parkir</span>
+                            <span class="text-emerald-400 font-bold">85%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full w-[85%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                            <span>Revitalisasi Taman & Jalur Hijau</span>
+                            <span class="text-blue-400 font-bold">70%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full w-[70%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                            <span>Audit & Peremajaan Genset Gedung</span>
+                            <span class="text-amber-400 font-bold">On-Progress</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-amber-500 h-full w-[45%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Sidebar -->
+        <div class="p-4 bg-slate-900 border-t border-slate-800 text-[11px] text-center text-slate-500 font-medium">
+            Riverside Living Magazine &copy; 2026
+        </div>
+    </aside>
+
     <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
         
-        <!-- Featured Hero Section (Article ID 1) dengan Foto Apartemen -->
+        <!-- Featured Hero Section (Article ID 1) -->
         <div id="heroSection" class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-slate-100 grid md:grid-cols-2 gap-0 cursor-pointer transition-all duration-300 group" onclick="openArticle(1)">
-            
-            <!-- Bagian Foto Gedung Muara Indah -->
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-900">
                 <img id="heroImage" src="WhatsApp Image 2026-08-11 at 15.07.08.jpeg" alt="Apartemen Muara Indah Riverside" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out opacity-95 group-hover:opacity-100">
-                
-                <!-- Gradient Overlay untuk versi mobile -->
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:hidden"></div>
-
-                <!-- Badge Kategori -->
                 <span id="heroCategory" class="absolute top-4 left-4 bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg border border-white/20">
                     Salam Redaksi
                 </span>
             </div>
-
-            <!-- Bagian Konten Teks -->
             <div class="p-6 md:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-slate-50 to-blue-50/30">
                 <div>
                     <div class="flex items-center text-xs text-slate-500 space-x-2 mb-3 font-semibold">
@@ -142,6 +285,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Section: Articles Grid -->
         <section>
             <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
@@ -153,6 +297,70 @@
             </div>
             <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Dynamic JavaScript Content -->
+            </div>
+        </section>
+
+        <!-- Rubrik Khusus Paten 1: Spotlight Warga & UMKM Lokal -->
+        <section class="bg-gradient-to-br from-white to-amber-50/40 rounded-3xl p-6 md:p-8 shadow-sm border border-amber-100/80">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-4 border-b border-amber-100 gap-4">
+                <div>
+                    <span class="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Rubrik Khusus Warga</span>
+                    <h3 class="text-xl font-black text-slate-900 mt-2">✨ Spotlight Warga & UMKM Lokal</h3>
+                    <p class="text-xs text-slate-500">Mengenal lebih dekat kisah inspiratif, hobi, dan usaha mandiri tetangga kita di Apartemen Muara Indah.</p>
+                </div>
+                <span class="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200">Edisi 10 & 11</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 items-center">
+                <div class="relative rounded-2xl overflow-hidden h-56 shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600" alt="Spotlight UMKM" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-xs font-bold text-white bg-blue-600/90 px-2.5 py-1 rounded-lg">Tower B - Unit 12A</span>
+                    </div>
+                </div>
+                <div class="md:col-span-2 space-y-3">
+                    <h4 class="text-lg font-extrabold text-slate-900">Dapur Rumahan Ibu Siti: Cita Rasa Nusantara di Lingkungan Apartemen</h4>
+                    <p class="text-xs font-semibold text-amber-600 uppercase tracking-wider">Kuliner & Katering Harian Antar Tower</p>
+                    <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        Berawal dari hobi meracik resep masakan tradisional untuk keluarga, kini Ibu Siti rutin melayani pesanan katering harian dan kue basah bagi para tetangga di Apartemen Muara Indah Riverside. <em class="text-slate-500">"Senang rasanya bisa berbagi rasa, mempererat kekeluargaan, sekaligus melayani tetangga sendiri tanpa harus keluar area apartemen,"</em> ujarnya.
+                    </p>
+                    <div class="pt-2 flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg">WhatsApp: 0812-3456-789X</span>
+                        <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">Buka Setiap Hari</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rubrik Khusus Paten 2: Mini Polling / Survey Kepuasan Penghuni -->
+        <section class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="max-w-xl mb-6">
+                <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Suara Warga Interaktif</span>
+                <h3 class="text-xl font-black text-slate-900 mt-2">📊 Mini Polling Kepuasan Penghuni</h3>
+                <p class="text-xs text-slate-500 mt-1">Bantu pengelola mengevaluasi kenyamanan kawasan kita bulan ini melalui jajak pendapat singkat berikut.</p>
+            </div>
+
+            <div id="pollingContainer" class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80">
+                <p class="font-bold text-slate-800 text-sm md:text-base mb-4">Bagaimana penilaian umum Anda terhadap keasrian taman, kebersihan koridor, & ketertiban fasilitas bulan ini?</p>
+                
+                <div class="space-y-3 mb-6" id="pollingOptions">
+                    <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
+                        <input type="radio" name="kepuasan_warga" value="Sangat Asri" class="text-blue-600 focus:ring-blue-500">
+                        <span class="text-xs md:text-sm font-medium text-slate-700">Sangat Asri, Bersih & Terawat Optimal</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
+                        <input type="radio" name="kepuasan_warga" value="Cukup Baik" class="text-blue-600 focus:ring-blue-500">
+                        <span class="text-xs md:text-sm font-medium text-slate-700">Cukup Baik (Sudah Nyaman)</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
+                        <input type="radio" name="kepuasan_warga" value="Perlu Ditingkatkan" class="text-blue-600 focus:ring-blue-500">
+                        <span class="text-xs md:text-sm font-medium text-slate-700">Perlu Peningkatan / Perbaikan Lebih Lanjut</span>
+                    </label>
+                </div>
+
+                <button onclick="submitPolling()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow-md">
+                    Kirim Partisipasi Suara
+                </button>
             </div>
         </section>
 
@@ -259,14 +467,13 @@
             </div>
         </section>
 
-        <!-- Section: Kotak Aspirasi & Saran Warga (Formspree Ready) -->
+        <!-- Section: Kotak Aspirasi & Saran Warga -->
         <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
             <div class="max-w-xl">
                 <span class="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Partisipasi Warga</span>
                 <h3 class="text-xl font-black text-slate-900 mt-2">Kotak Saran, Kritik & Aspirasi</h3>
                 <p class="text-xs text-slate-500 mt-1">Punya ide untuk kemajuan lingkungan Riverside, masukan rubrik majalah, atau kritik membangun? Sampaikan di sini untuk bahan evaluasi bersama.</p>
             </div>
-            <!-- Ganti action dengan endpoint Formspree Anda, contoh: action="https://formspree.io/f/xyzabcdef" -->
             <form action="https://formspree.io/f/KODEFMRANDANAMUNCUL" method="POST" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni (Opsional)</label>
@@ -293,7 +500,7 @@
 
     </main>
 
-    <!-- Floating Action Button: Kotak Saran Warga (Kanan Bawah) -->
+    <!-- Floating Action Button: Kotak Saran Warga -->
     <div class="fixed bottom-6 right-6 z-50">
         <a href="#laporanWargaSection" class="group flex items-center gap-2 bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-md px-4 py-3 rounded-full shadow-2xl border border-white/20 transition-all duration-300 hover:scale-105">
             <span class="relative flex h-2.5 w-2.5">
@@ -361,7 +568,7 @@
                 category: "Redaksi",
                 date: "Oktober – November 2026",
                 author: "Tenant Relation Riverside Apartment",
-                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+                image: "WhatsApp Image 2026-08-11 at 15.07.08.jpeg",
                 summary: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Edisi kali ini merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas selama September & Oktober 2026.",
                 content: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Hadir kembali di hadapan Bapak/Ibu sekalian, Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11). Edisi kali ini kami hadirkan secara istimewa dengan konten yang lebih padat, merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas kita selama dua bulan berturut-turut (September & Oktober 2026). Berbagai momen krusial telah kita lalui bersama, salah satunya adalah agenda Musyawarah Umum Anggota Tahunan (MUAT) 2026 yang berlangsung dengan hangat dan penuh semangat keterbukaan. Di saat yang sama, pemeliharaan rutin gedung serta modernisasi layanan digital—seperti sistem reservasi fasilitas berbasis QR—terus ditingkatkan demi kenyamanan bersama. Melalui edisi ini, kami mengajak seluruh warga untuk terus menjaga keasrian, kebersihan, serta keharmonisan di lingkungan Riverside. Selamat membaca!"
             },
@@ -381,7 +588,6 @@
                     • Pelaksanaan MUAT 2026: Pengorganisasian Musyawarah Umum Anggota Tahunan (MUAT) 2026, mencakup rekapitulasi kehadiran digital, pelaporan keuangan, dan pembahasan arah tata kelola gedung ke depan.<br>
                     • Digitalisasi & Fasilitas: Pembaruan dan pengujian integrasi sistem pendaftaran pengunjung serta reservasi fasilitas olahraga via sistem QR / form digital. Perbaikan dan perawatan rutin penerangan area parkir dan taman publik.<br><br>
                     
-                    <!-- GALERI FOTO GESER SAMPING -->
                     <div class="mt-6 pt-4 border-t border-slate-200">
                         <p class="mb-3 font-extrabold text-sm text-slate-900 uppercase tracking-wider">Dokumentasi Foto Lapangan:</p>
                         <div class="flex overflow-x-auto space-x-3 pb-3 scrollbar-none">
@@ -544,6 +750,41 @@
         function closeModal() {
             document.getElementById('articleModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
+        }
+
+        // Fungsi Toggle Sidebar WOW
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebarPanel');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Fungsi Submit Mini Polling Warga
+        function submitPolling() {
+            const selected = document.querySelector('input[name="kepuasan_warga"]:checked');
+            if (!selected) {
+                alert('Silakan pilih salah satu opsi penilaian terlebih dahulu.');
+                return;
+            }
+            const container = document.getElementById('pollingContainer');
+            container.innerHTML = `
+                <div class="text-center py-6">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
+                    <h4 class="font-black text-slate-900 text-base mb-1">Terima Kasih atas Partisipasi Anda!</h4>
+                    <p class="text-xs text-slate-600">Pilihan Anda ("<strong>${selected.value}</strong>") telah terekam sebagai bahan evaluasi pengelola Riverside.</p>
+                </div>
+            `;
         }
 
         // Initialize on load
