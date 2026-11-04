@@ -214,7 +214,7 @@
     <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
         
-        <!-- Featured Hero Section -->
+        <!-- Featured Hero Section (Eksklusif Headline Utama / Salam Redaksi) -->
         <div id="heroSection" class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-slate-100 grid md:grid-cols-2 gap-0 cursor-pointer transition-all duration-300 group" onclick="openArticle(1)">
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-900">
                 <img id="heroImage" src="Featured Hero.jpeg" alt="Apartemen Muara Indah Riverside" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out opacity-95 group-hover:opacity-100">
@@ -238,14 +238,14 @@
             </div>
         </div>
 
-        <!-- Section: Articles Grid -->
+        <!-- Section: Articles Grid (Mulai dari Artikel #2 s.d #8, tanpa menduplikasi Salam Redaksi) -->
         <section>
             <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
                 <h3 id="sectionTitle" class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                    Rubrik & Artikel Edisi Ganda
+                    Rubrik & Laporan Edisi Ganda
                 </h3>
-                <span id="articleCount" class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">8 Artikel</span>
+                <span id="articleCount" class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">7 Artikel</span>
             </div>
             <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
         </section>
@@ -454,6 +454,7 @@
 
     <!-- Application JavaScript Logic -->
     <script>
+        // Array lengkap (ID 1 khusus untuk Headline Utama, ID 2 s.d 8 untuk Grid Artikel)
         const articles = [
             {
                 id: 1,
@@ -502,8 +503,8 @@
                 date: "Oktober 2026",
                 author: "Tenant Relation Riverside Apartment",
                 image: "sanctuary tatib.jpeg",
-                summary: "Ketentuan etika koridor pada jam istirahat serta aturan ketat wajib kartu akses koridor.",
-                content: "• <strong>Etika Koridor:</strong> Jaga ketenangan pada jam istirahat (22.00 - 06.00 WIB) dan hindari meletakkan barang pribadi/sepatu yang menghalangi jalur evakuasi koridor.<br>• <strong>Akses Pintu & Keamanan:</strong> Setiap penghuni wajib menggunakan kartu akses resmi saat melewati pintu penghubung menuju koridor basement dan lantai dasar (GF) demi keamanan bersama."
+                summary: "Ketentuan etika koridor pada jam istirahat serta penguatan sistem akses kartu resmi demi keamanan dan kenyamanan seluruh warga.",
+                content: "Menjaga keharmonisan dan kenyamanan di hunian vertikal seperti Apartemen Muara Indah Riverside memerlukan kesadaran kolektif dari setiap penghuni. Di tengah dinamika harian kawasan, penegakan etika di area publik kembali menjadi sorotan utama demi ketertiban bersama.<br><br><strong>1. Menjaga Ketenangan & Ruang Evakuasi Koridor</strong><br>Seluruh warga diimbau untuk senantiasa menjaga ketenangan, khususnya pada jam istirahat pukul 22.00 hingga 06.00 WIB. Selain itu, penghuni diingatkan untuk tidak meletakkan barang pribadi, rak sepatu, atau barang📦 di sepanjang selasar koridor yang dapat menghalangi jalur evakuasi darurat.<br><br><strong>2. Penguatan Sistem Kartu Akses Demi Keamanan Bersama</strong><br>Dalam hal mobilitas, setiap penghuni kini diwajibkan menggunakan kartu akses resmi saat melintasi pintu penghubung menuju koridor lantai basement maupun area lantai dasar (GF). Kebijakan ini diberlakukan secara ketat guna memastikan keamanan kawasan dan mencegah lalu-lalang pihak luar yang tidak berkepentingan.<br><br>Menanggapi hal tersebut, dalam kesempatan terpisah <strong>Pengurus P3SRS Apartemen Muara Indah</strong> menambahkan bahwa penerapan disiplin akses ini bukan sekadar aturan administratif semata. <em>\"Penggunaan kartu akses ini merupakan bagian dari upaya kolektif kita dalam meningkatkan kesadaran bersama untuk menjaga sterilitas dan keamanan lingkungan apartemen secara berkelanjutan,\"</em> ungkap perwakilan pengurus P3SRS.<br><br><em>Dengan kedisiplinan dari setiap unit, mari kita wujudkan lingkungan Riverside yang semakin aman, tertib, dan nyaman untuk ditinggali!</em>"
             },
             {
                 id: 6,
@@ -586,9 +587,11 @@
             });
 
             if (cat === 'Semua') {
-                renderArticles(articles);
+                // Tampilkan artikel dari ID 2 sampai 8 di grid (ID 1 khusus di hero atas)
+                const gridArticles = articles.filter(a => a.id !== 1);
+                renderArticles(gridArticles);
             } else {
-                const filtered = articles.filter(a => a.category.toLowerCase() === cat.toLowerCase());
+                const filtered = articles.filter(a => a.id !== 1 && a.category.toLowerCase() === cat.toLowerCase());
                 renderArticles(filtered);
             }
         }
@@ -596,9 +599,11 @@
         function filterArticles() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const filtered = articles.filter(a => 
-                a.title.toLowerCase().includes(query) || 
-                a.summary.toLowerCase().includes(query) || 
-                a.content.toLowerCase().includes(query)
+                a.id !== 1 && (
+                    a.title.toLowerCase().includes(query) || 
+                    a.summary.toLowerCase().includes(query) || 
+                    a.content.toLowerCase().includes(query)
+                )
             );
             renderArticles(filtered);
         }
@@ -660,8 +665,8 @@
             `;
         }
 
-        // Initialize on load
-        renderArticles(articles);
+        // Initialize on load (Tampilkan artikel ID 2 ke atas di grid, ID 1 di hero section)
+        renderArticles(articles.filter(a => a.id !== 1));
     </script>
 </body>
 </html>
