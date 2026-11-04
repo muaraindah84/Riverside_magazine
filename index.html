@@ -157,6 +157,56 @@
                     <button onclick="toggleSidebar(); filterCategory('Komunitas');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">✨ Spotlight</span><span class="text-[10px] text-slate-400">Warga & UMKM</span></button>
                 </div>
             </div>
+            
+            <!-- Update Lalu Lintas Terkini -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-black tracking-widest text-amber-400 uppercase flex items-center gap-1.5">🚗 Lalu Lintas Akses Utama</span>
+                    <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Lancar</span>
+                </div>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center text-slate-300 border-b border-slate-800/80 pb-2">
+                        <span>Gate Utama (Jl. Raya)</span>
+                        <span class="text-emerald-400 font-bold">Lancar Jaya</span>
+                    </div>
+                    <div class="flex justify-between items-center text-slate-300 pb-1">
+                        <span>Area Drop-off & Parkir Basement</span>
+                        <span class="text-amber-400 font-bold">Normal / Padat</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List Plan Project Riverside (MUAT 2026) -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-black tracking-widest text-blue-400 uppercase flex items-center gap-1.5">📋 Plan Project (MUAT 2026)</span>
+                    <span class="text-[9px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-bold">Progress</span>
+                </div>
+                <div class="space-y-3 text-xs">
+                    <div>
+                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                            <span>Modernisasi Gate & QR Parkir</span>
+                            <span class="text-emerald-400 font-bold">85%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-emerald-500 h-full w-[85%]"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                            <span>Revitalisasi Taman & Jalur Hijau</span>
+                            <span class="text-blue-400 font-bold">70%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[70%]"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                            <span>Audit & Peremajaan Genset Gedung</span>
+                            <span class="text-amber-400 font-bold">On-Progress</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-amber-500 h-full w-[45%]"></div></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="p-4 bg-slate-900 border-t border-slate-800 text-[11px] text-center text-slate-500 font-medium">Riverside Living Magazine &copy; 2026</div>
     </aside>
@@ -255,6 +305,59 @@
                     </label>
                 </div>
                 <button onclick="submitPolling()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow-md">Kirim Partisipasi Suara</button>
+            </div>
+        </section>
+
+        <!-- Section: 10 Detik Riverside (Video Feature) -->
+        <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <span class="bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">Shorts / Reels</span>
+                    <h3 class="text-xl font-black mt-2">10 Detik Riverside</h3>
+                    <p class="text-xs text-slate-400">Momen keasrian, kesibukan, dan aktivitas harian di kawasan apartemen.</p>
+                </div>
+                <div class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">Update Rutin Double Edition</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Suasana MUAT 2026 Apartemen Riverside</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Keasrian Taman & Tanaman Bougainvillea</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
+                            <h4 class="text-sm font-bold text-white">Sudut Jendela Window Nook Estetik</h4>
+                        </div>
+                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
