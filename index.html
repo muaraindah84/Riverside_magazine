@@ -544,7 +544,7 @@
                 author: "Tenant Relation Riverside",
                 image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800",
                 summary: "Menyusuri sudut-sudut hijau dan spot favorit di kawasan Apartemen Muara Indah yang adem dan menenangkan melalui galeri foto pilihan.",
-                content: 'Di tengah kesibukan harian dan gemerlapnya aktivitas perkotaan, memiliki ruang terbuka yang asri adalah sebuah privilese tersendiri. Di kawasan Apartemen Muara Indah Riverside, Tim Pengelola secara konsisten merawat berbagai sudut hijau dan taman tematik.<br><br><div class="mt-6 pt-4 border-t border-slate-200"><p class="mb-3 font-extrabold text-sm text-slate-900 uppercase tracking-wider">Galeri Foto Pojok Estetik Kawasan:</p><div class="grid grid-cols-2 gap-3"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 1"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 2"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 3"><img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 4"></div><p class="text-[11px] text-slate-400 italic mt-2">Deretan spot hijau dan kanopi alami yang selalu dirawat demi kesejukan pandangan mata setiap hari.</p></div>'
+                content: '<div class="mb-6"><p class="mb-3 font-extrabold text-sm text-slate-900 uppercase tracking-wider">Galeri Foto Pojok Estetik Kawasan:</p><div class="grid grid-cols-2 gap-3"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 1"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 2"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 3"><img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=600" class="w-full h-40 object-cover rounded-xl shadow-sm border border-slate-200" alt="Estetik 4"></div><p class="text-[11px] text-slate-400 italic mt-2">Deretan spot hijau dan kanopi alami yang selalu dirawat demi kesejukan pandangan mata setiap hari.</p></div>Di tengah kesibukan harian dan gemerlapnya aktivitas perkotaan, memiliki ruang terbuka yang asri adalah sebuah privilese tersendiri. Di kawasan Apartemen Muara Indah Riverside, Tim Pengelola secara konsisten merawat berbagai sudut hijau dan taman tematik demi kenyamanan seluruh penghuni.'
             },
             {
                 id: 10,
@@ -668,22 +668,54 @@
             }
         }
 
-        function submitPolling() {
+        // URL Web App Google Apps Script lo (Ganti tanda kutip di bawah dengan URL /exec lo)
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP77xqq8QoACKtvkZxJWOsdULoLZpWybteOdkifryxT6QWzU4WIPcfgI5DRe2B5UjdOg/exec";
+
+        async function submitPolling() {
             const selected = document.querySelector('input[name="kepuasan_warga"]:checked');
             if (!selected) {
                 alert('Silakan pilih salah satu opsi penilaian terlebih dahulu.');
                 return;
             }
+
+            const pilihanWarga = selected.value;
             const container = document.getElementById('pollingContainer');
+
+            // Efek loading saat data dikirim
             container.innerHTML = `
                 <div class="text-center py-6">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
-                    <h4 class="font-black text-slate-900 text-base mb-1">Terima Kasih atas Partisipasi Anda!</h4>
-                    <p class="text-xs text-slate-600">Pilihan Anda ("<strong>${selected.value}</strong>") telah terekam sebagai bahan evaluasi pengelola Riverside.</p>
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
+                    <h4 class="font-bold text-slate-800 text-sm">Menyimpan Suara Anda...</h4>
                 </div>
             `;
-        }
 
+            try {
+                // Kirim data ke Google Sheets via Apps Script
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Mencegah masalah CORS pada GitHub Pages
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ pilihan: pilihanWarga, unit: "Penghuni Riverside" })
+                });
+
+                // Tampilan sukses setelah data terkirim
+                container.innerHTML = `
+                    <div class="text-center py-6">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
+                        <h4 class="font-black text-slate-900 text-base mb-1">Terima Kasih atas Partisipasi Anda!</h4>
+                        <p class="text-xs text-slate-600">Pilihan Anda ("<strong>${pilihanWarga}</strong>") telah sukses tercatat di database pengelola.</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("Gagal mengirim polling:", error);
+                container.innerHTML = `
+                    <div class="text-center py-6 text-red-600">
+                        <h4 class="font-bold text-sm mb-1">Gagal Mengirim Suara</h4>
+                        <p class="text-xs">Terjadi kendala koneksi. Silakan coba beberapa saat lagi.</p>
+                    </div>
+                `;
+            }
+        }
         // Initialize on load (Tampilkan artikel ID 2 ke atas di grid, ID 1 di hero section)
         renderArticles(articles.filter(a => a.id !== 1));
     </script>
