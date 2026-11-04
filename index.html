@@ -281,34 +281,39 @@
             </div>
         </section>
 
-        <!-- Rubrik Khusus Paten 2: Mini Polling -->
+        <!-- Rubrik Khusus Paten 2: Mini Polling (Connected to Google Sheets) -->
         <section class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
             <div class="max-w-xl mb-6">
                 <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Suara Warga Interaktif</span>
                 <h3 class="text-xl font-black text-slate-900 mt-2">📊 Mini Polling Kepuasan Penghuni</h3>
                 <p class="text-xs text-slate-500 mt-1">Bantu pengelola mengevaluasi kenyamanan kawasan kita bulan ini melalui jajak pendapat singkat berikut.</p>
             </div>
-            <div id="pollingContainer" class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80">
-                <p class="font-bold text-slate-800 text-sm md:text-base mb-4">Bagaimana penilaian umum Anda terhadap keasrian taman, kebersihan koridor, & ketertiban fasilitas bulan ini?</p>
-                <div class="space-y-3 mb-6" id="pollingOptions">
-                    <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
-                        <input type="radio" name="kepuasan_warga" value="Sangat Asri" class="text-blue-600 focus:ring-blue-500">
+            <div id="pollingContainer" class="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-200/80">
+                <p class="font-bold text-slate-800 text-sm md:text-base mb-5">Bagaimana penilaian umum Anda terhadap keasrian taman, kebersihan koridor, & ketertiban fasilitas bulan ini?</p>
+                <div class="space-y-3.5 mb-6" id="pollingOptions">
+                    <label class="flex items-center space-x-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
+                        <input type="radio" name="kepuasan_warga" value="Sangat Asri" class="text-blue-600 focus:ring-blue-500 w-4 h-4">
                         <span class="text-xs md:text-sm font-medium text-slate-700">Sangat Asri, Bersih & Terawat Optimal</span>
                     </label>
-                    <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
-                        <input type="radio" name="kepuasan_warga" value="Cukup Baik" class="text-blue-600 focus:ring-blue-500">
+                    <label class="flex items-center space-x-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
+                        <input type="radio" name="kepuasan_warga" value="Cukup Baik" class="text-blue-600 focus:ring-blue-500 w-4 h-4">
                         <span class="text-xs md:text-sm font-medium text-slate-700">Cukup Baik (Sudah Nyaman)</span>
                     </label>
-                    <label class="flex items-center space-x-3 p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
-                        <input type="radio" name="kepuasan_warga" value="Perlu Ditingkatkan" class="text-blue-600 focus:ring-blue-500">
+                    <label class="flex items-center space-x-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-500 cursor-pointer transition shadow-sm">
+                        <input type="radio" name="kepuasan_warga" value="Perlu Ditingkatkan" class="text-blue-600 focus:ring-blue-500 w-4 h-4">
                         <span class="text-xs md:text-sm font-medium text-slate-700">Perlu Peningkatan / Perbaikan Lebih Lanjut</span>
                     </label>
                 </div>
-                <button onclick="submitPolling()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow-md">Kirim Partisipasi Suara</button>
+                <div class="pt-2">
+                    <button onclick="submitPolling()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition shadow-md inline-flex items-center gap-2">
+                        <span>Kirim Partisipasi Suara</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </div>
             </div>
         </section>
 
-        <!-- Section: 10 Detik Riverside (Video Feature) -->
+        <!-- Section: 10 Detik Riverside (YouTube Modal Popup Shorts Fungsional) -->
         <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-md">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                 <div>
@@ -318,44 +323,55 @@
                 </div>
                 <div class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">Update Rutin Double Edition</div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Video Item 1: Simulasi & Safety -->
+                <div onclick="openVideoModal('https://www.youtube.com/embed/a-TjbaXt95A', 'Simulasi & Pelatihan Safety Tim Riverside')" class="relative rounded-2xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group cursor-pointer shadow-lg hover:border-amber-500 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-600/90 group-hover:bg-blue-600 text-white flex items-center justify-center shadow-lg transition group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
                     <div class="relative z-10 flex items-center justify-between">
                         <div>
-                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
-                            <h4 class="text-sm font-bold text-white">Suasana MUAT 2026 Apartemen Riverside</h4>
+                            <span class="text-[10px] font-bold text-amber-400 bg-slate-900/80 px-2 py-0.5 rounded">0:24 DTK</span>
+                            <h4 class="text-sm font-bold text-white mt-1">Simulasi & Pelatihan Safety Tim Riverside</h4>
                         </div>
-                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+
+                <!-- Video Item 2: Pertolongan Pertama / Perbaikan Pipa -->
+                <div onclick="openVideoModal('https://www.youtube.com/embed/qGLHPh0kLdo', 'Aksi Cepat Tanggap Perbaikan Pipa Basement')" class="relative rounded-2xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group cursor-pointer shadow-lg hover:border-amber-500 transition-all duration-300">
                     <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-600/90 group-hover:bg-blue-600 text-white flex items-center justify-center shadow-lg transition group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
                     <div class="relative z-10 flex items-center justify-between">
                         <div>
-                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
-                            <h4 class="text-sm font-bold text-white">Keasrian Taman & Tanaman Bougainvillea</h4>
+                            <span class="text-[10px] font-bold text-amber-400 bg-slate-900/80 px-2 py-0.5 rounded">0:19 DTK</span>
+                            <h4 class="text-sm font-bold text-white mt-1">Aksi Cepat Tanggap Perbaikan Pipa Basement</h4>
                         </div>
-                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group">
+
+                <!-- Video Item 3: Himbauan Bersama / Etika Koridor -->
+                <div onclick="openVideoModal('https://www.youtube.com/embed/GScqkRmfxUk', 'Himbauan Bersama Ketertiban Koridor & Pintu Darurat')" class="relative rounded-2xl overflow-hidden bg-slate-800 h-64 border border-slate-700 flex flex-col justify-end p-4 group cursor-pointer shadow-lg hover:border-amber-500 transition-all duration-300">
                     <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-500" alt="Video Thumb">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-600/90 group-hover:bg-blue-600 text-white flex items-center justify-center shadow-lg transition group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
                     <div class="relative z-10 flex items-center justify-between">
                         <div>
-                            <p class="text-xs font-bold text-amber-400">0:10 DTK</p>
-                            <h4 class="text-sm font-bold text-white">Sudut Jendela Window Nook Estetik</h4>
+                            <span class="text-[10px] font-bold text-amber-400 bg-slate-900/80 px-2 py-0.5 rounded">0:45 DTK</span>
+                            <h4 class="text-sm font-bold text-white mt-1">Himbauan Bersama Ketertiban Koridor & Pintu Darurat</h4>
                         </div>
-                        <button onclick="alert('Memutar Video 10 Detik Riverside')" class="bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -443,6 +459,20 @@
                 <div class="flex items-center space-x-2 text-xs text-slate-500 mb-3 font-medium"><span id="modalDate"></span><span>•</span><span id="modalAuthor"></span></div>
                 <h2 id="modalTitle" class="text-xl md:text-2xl font-black text-slate-900 mb-4 leading-snug"></h2>
                 <div id="modalContent" class="text-slate-700 text-sm md:text-base leading-relaxed space-y-4 border-t border-slate-100 pt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Popup Modal (YouTube Shorts Lightbox) -->
+    <div id="videoModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all">
+        <div class="bg-slate-900 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative border border-slate-800">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-slate-800 hover:bg-slate-700 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl z-20 transition shadow">&times;</button>
+            <div class="relative w-full bg-black" style="height: 500px;">
+                <iframe id="youtubeIframe" src="" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="p-5 bg-slate-900">
+                <h4 id="videoModalTitle" class="text-sm font-bold text-white mb-1 truncate"></h4>
+                <p class="text-[10px] text-slate-400">Riverside Living Magazine - YouTube Shorts</p>
             </div>
         </div>
     </div>
@@ -652,6 +682,20 @@
             document.body.style.overflow = 'auto';
         }
 
+        // YouTube Modal Controller
+        function openVideoModal(embedUrl, title) {
+            document.getElementById('youtubeIframe').src = embedUrl + "?autoplay=1";
+            document.getElementById('videoModalTitle').innerText = title;
+            document.getElementById('videoModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            document.getElementById('youtubeIframe').src = "";
+            document.getElementById('videoModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebarPanel');
             const overlay = document.getElementById('sidebarOverlay');
@@ -668,7 +712,7 @@
             }
         }
 
-        // URL Web App Google Apps Script lo (Ganti tanda kutip di bawah dengan URL /exec lo)
+        // Google Sheets Polling Backend URL (Ganti dengan URL /exec lo nanti)
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP77xqq8QoACKtvkZxJWOsdULoLZpWybteOdkifryxT6QWzU4WIPcfgI5DRe2B5UjdOg/exec";
 
         async function submitPolling() {
@@ -681,29 +725,26 @@
             const pilihanWarga = selected.value;
             const container = document.getElementById('pollingContainer');
 
-            // Efek loading saat data dikirim
             container.innerHTML = `
                 <div class="text-center py-6">
                     <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
-                    <h4 class="font-bold text-slate-800 text-sm">Menyimpan Suara Anda...</h4>
+                    <h4 class="font-bold text-slate-800 text-sm">Menyimpan Suara Anda ke Database...</h4>
                 </div>
             `;
 
             try {
-                // Kirim data ke Google Sheets via Apps Script
                 await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Mencegah masalah CORS pada GitHub Pages
+                    mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ pilihan: pilihanWarga, unit: "Penghuni Riverside" })
                 });
 
-                // Tampilan sukses setelah data terkirim
                 container.innerHTML = `
                     <div class="text-center py-6">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
                         <h4 class="font-black text-slate-900 text-base mb-1">Terima Kasih atas Partisipasi Anda!</h4>
-                        <p class="text-xs text-slate-600">Pilihan Anda ("<strong>${pilihanWarga}</strong>") telah sukses tercatat di database pengelola.</p>
+                        <p class="text-xs text-slate-600">Pilihan Anda ("<strong>${pilihanWarga}</strong>") telah sukses tercatat di Google Sheets pengelola.</p>
                     </div>
                 `;
             } catch (error) {
@@ -716,7 +757,8 @@
                 `;
             }
         }
-        // Initialize on load (Tampilkan artikel ID 2 ke atas di grid, ID 1 di hero section)
+
+        // Initialize on load
         renderArticles(articles.filter(a => a.id !== 1));
     </script>
 </body>
