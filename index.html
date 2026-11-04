@@ -406,37 +406,39 @@
             </div>
         </section>
 
-        <!-- Section: Kotak Aspirasi & Saran Warga -->
+        <!-- Section: Kotak Aspirasi & Saran Warga (Terhubung ke Google Sheets Tab Baru) -->
         <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
             <div class="max-w-xl">
                 <span class="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Partisipasi Warga</span>
                 <h3 class="text-xl font-black text-slate-900 mt-2">Kotak Saran, Kritik & Aspirasi</h3>
                 <p class="text-xs text-slate-500 mt-1">Punya ide untuk kemajuan lingkungan Riverside, masukan rubrik majalah, atau kritik membangun? Sampaikan di sini untuk bahan evaluasi bersama.</p>
             </div>
-            <form action="https://formspree.io/f/KODEFMRANDANAMUNCUL" method="POST" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni (Opsional)</label>
-                    <input type="text" name="nama_warga" placeholder="Contoh: Bpk. Budi / Tower A-05" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Masukan</label>
-                    <select name="kategori" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-                        <option>Saran & Ide Pengelolaan</option>
-                        <option>Masukan Konten / Rubrik Majalah</option>
-                        <option>Kritik Konstruktif Fasilitas</option>
-                        <option>Apresiasi / Lainnya</option>
-                    </select>
-                </div>
-                <div class="md:col-span-2">
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Pesan / Saran Anda</label>
-                    <textarea name="pesan" rows="3" required placeholder="Tuliskan saran, kritik membangun, atau ide Anda di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
-                </div>
-                <div class="md:col-span-2">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Saran & Aspirasi</button>
-                </div>
-            </form>
+            
+            <div id="saranContainer" class="mt-6">
+                <form id="saranForm" onsubmit="submitSaran(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni (Opsional)</label>
+                        <input type="text" id="saranNama" placeholder="Contoh: Bpk. Budi / Unit 1A0502" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Masukan</label>
+                        <select id="saranKategori" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option>Saran & Ide Pengelolaan</option>
+                            <option>Masukan Konten / Rubrik Majalah</option>
+                            <option>Kritik Konstruktif Fasilitas</option>
+                            <option>Apresiasi / Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Pesan / Saran Anda</label>
+                        <textarea id="saranPesan" rows="3" required placeholder="Tuliskan saran, kritik membangun, atau ide Anda di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Saran & Aspirasi</button>
+                    </div>
+                </form>
+            </div>
         </section>
-
     </main>
 
     <!-- Floating Action Button -->
@@ -753,6 +755,54 @@
                     <div class="text-center py-6 text-red-600">
                         <h4 class="font-bold text-sm mb-1">Gagal Mengirim Suara</h4>
                         <p class="text-xs">Terjadi kendala koneksi. Silakan coba beberapa saat lagi.</p>
+                    </div>
+                `;
+            }
+        }
+        async function submitSaran(event) {
+            event.preventDefault(); // Mencegah reload halaman
+
+            const nama = document.getElementById('saranNama').value;
+            const kategori = document.getElementById('saranKategori').value;
+            const pesan = document.getElementById('saranPesan').value;
+            const container = document.getElementById('saranContainer');
+
+            // Tampilkan animasi loading
+            container.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
+                    <h4 class="font-bold text-slate-800 text-sm">Mengirim Aspirasi Anda ke Pengelola...</h4>
+                </div>
+            `;
+
+            try {
+                // Menggunakan SCRIPT_URL yang sama dengan polling
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        type: "saran", 
+                        nama: nama, 
+                        kategori: kategori, 
+                        pesan: pesan 
+                    })
+                });
+
+                // Tampilan sukses setelah terkirim
+                container.innerHTML = `
+                    <div class="text-center py-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
+                        <h4 class="font-black text-slate-900 text-base mb-1">Aspirasi Berhasil Terkirim!</h4>
+                        <p class="text-xs text-slate-600">Terima kasih atas masukan berharga Anda untuk kemajuan bersama lingkungan Riverside.</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("Gagal mengirim saran:", error);
+                container.innerHTML = `
+                    <div class="text-center py-8 text-red-600">
+                        <h4 class="font-bold text-sm mb-1">Gagal Mengirim Aspirasi</h4>
+                        <p class="text-xs">Terjadi kendala koneksi. Silakan muat ulang halaman dan coba lagi.</p>
                     </div>
                 `;
             }
