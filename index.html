@@ -119,98 +119,98 @@
     <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-50 hidden transition-opacity opacity-0"></div>
 
     <!-- SIDEBAR PANEL "WOW" -->
-    <aside id="sidebarPanel" class="fixed top-0 left-0 bottom-0 w-80 sm:w-96 bg-slate-950 text-slate-100 z-50 transform -translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col justify-between border-r border-slate-800">
-        <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/80 backdrop-blur">
+    <!-- SIDEBAR PANEL (Background Putih & Animasi Zoom-In) -->
+    <aside id="sidebarPanel" class="fixed top-0 left-0 bottom-0 w-80 sm:w-96 bg-white text-slate-800 z-50 opacity-0 pointer-events-none scale-95 transition-all duration-300 ease-out shadow-2xl flex flex-col justify-between border-r border-slate-200">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/80 backdrop-blur">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-xl overflow-hidden bg-blue-600 flex items-center justify-center shadow-inner font-black text-white text-sm">RR</div>
                 <div>
-                    <h3 class="text-xs font-black tracking-wider text-white uppercase">Riverside Control Hub</h3>
-                    <p class="text-[10px] text-amber-400 font-bold uppercase tracking-widest">P3SRS Muara Indah</p>
+                    <h3 class="text-xs font-black tracking-wider text-slate-900 uppercase">Riverside Control Hub</h3>
+                    <p class="text-[10px] text-amber-600 font-bold uppercase tracking-widest">P3SRS Muara Indah</p>
                 </div>
             </div>
-            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition">
+            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-slate-900 p-2 rounded-xl hover:bg-slate-200/60 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
         </div>
         <div class="p-5 space-y-6 overflow-y-auto max-h-[calc(100vh-140px)] scrollbar-none">
-            <div class="bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-500/30 rounded-2xl p-4 shadow-lg">
+            <div class="bg-gradient-to-br from-blue-50 to-slate-50 border border-blue-100 rounded-2xl p-4 shadow-sm">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-[10px] font-extrabold tracking-widest text-blue-400 uppercase">Kawasan Muara Indah</span>
-                    <span class="flex items-center gap-1 text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Asri & Sejuk</span>
+                    <span class="text-[10px] font-extrabold tracking-widest text-blue-600 uppercase">Kawasan Muara Indah</span>
+                    <span class="flex items-center gap-1 text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Asri & Sejuk</span>
                 </div>
                 <div class="flex justify-between items-end">
                     <div>
-                        <h4 class="text-lg font-black text-white">28°C • Berawan</h4>
-                        <p class="text-[11px] text-slate-400">Kelembapan Udara 75%</p>
+                        <h4 class="text-lg font-black text-slate-900">28°C • Berawan</h4>
+                        <p class="text-[11px] text-slate-500">Kelembapan Udara 75%</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-[10px] text-amber-400 font-bold bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/20">Air Taman: ON</span>
+                        <span class="text-[10px] text-amber-700 font-bold bg-amber-100 px-2 py-1 rounded-lg border border-amber-200">Air Taman: ON</span>
                     </div>
                 </div>
             </div>
             <div>
-                <p class="text-[10px] font-black tracking-widest text-slate-500 uppercase mb-3 px-1">Pilih Rubrik Majalah</p>
+                <p class="text-[10px] font-black tracking-widest text-slate-400 uppercase mb-3 px-1">Pilih Rubrik Majalah</p>
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="toggleSidebar(); filterCategory('Semua');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">📚 Semua</span><span class="text-[10px] text-slate-400">Semua Artikel</span></button>
-                    <button onclick="toggleSidebar(); filterCategory('Redaksi');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">📢 Redaksi</span><span class="text-[10px] text-slate-400">Salam Utama</span></button>
-                    <button onclick="toggleSidebar(); filterCategory('Laporan');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">🛠️ Laporan</span><span class="text-[10px] text-slate-400">Album Lapangan</span></button>
-                    <button onclick="toggleSidebar(); filterCategory('Komunitas');" class="p-3 bg-slate-900 hover:bg-blue-600/20 border border-slate-800 hover:border-blue-500/50 rounded-xl text-left transition group"><span class="text-xs font-bold text-white group-hover:text-blue-400 block">✨ Spotlight</span><span class="text-[10px] text-slate-400">Warga & UMKM</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Semua');" class="p-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition group"><span class="text-xs font-bold text-slate-800 group-hover:text-blue-600 block">📚 Semua</span><span class="text-[10px] text-slate-500">Semua Artikel</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Redaksi');" class="p-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition group"><span class="text-xs font-bold text-slate-800 group-hover:text-blue-600 block">📢 Redaksi</span><span class="text-[10px] text-slate-500">Salam Utama</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Laporan');" class="p-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition group"><span class="text-xs font-bold text-slate-800 group-hover:text-blue-600 block">🛠️ Laporan</span><span class="text-[10px] text-slate-500">Album Lapangan</span></button>
+                    <button onclick="toggleSidebar(); filterCategory('Komunitas');" class="p-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition group"><span class="text-xs font-bold text-slate-800 group-hover:text-blue-600 block">✨ Spotlight</span><span class="text-[10px] text-slate-500">Warga & UMKM</span></button>
                 </div>
             </div>
             
             <!-- Update Lalu Lintas Terkini -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
                 <div class="flex items-center justify-between mb-3">
-                    <span class="text-[10px] font-black tracking-widest text-amber-400 uppercase flex items-center gap-1.5">🚗 Lalu Lintas Akses Utama</span>
-                    <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Lancar</span>
+                    <span class="text-[10px] font-black tracking-widest text-amber-600 uppercase flex items-center gap-1.5">🚗 Lalu Lintas Akses Utama</span>
+                    <span class="text-[9px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">Lancar</span>
                 </div>
                 <div class="space-y-2 text-xs">
-                    <div class="flex justify-between items-center text-slate-300 border-b border-slate-800/80 pb-2">
+                    <div class="flex justify-between items-center text-slate-700 border-b border-slate-200 pb-2">
                         <span>Gate Utama (Jl. Raya)</span>
-                        <span class="text-emerald-400 font-bold">Lancar Jaya</span>
+                        <span class="text-emerald-600 font-bold">Lancar Jaya</span>
                     </div>
-                    <div class="flex justify-between items-center text-slate-300 pb-1">
+                    <div class="flex justify-between items-center text-slate-700 pb-1">
                         <span>Area Drop-off & Parkir Basement</span>
-                        <span class="text-amber-400 font-bold">Normal / Padat</span>
+                        <span class="text-amber-600 font-bold">Normal / Padat</span>
                     </div>
                 </div>
             </div>
 
             <!-- List Plan Project Riverside (MUAT 2026) -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
                 <div class="flex items-center justify-between mb-3">
-                    <span class="text-[10px] font-black tracking-widest text-blue-400 uppercase flex items-center gap-1.5">📋 Plan Project (MUAT 2026)</span>
-                    <span class="text-[9px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-bold">Progress</span>
+                    <span class="text-[10px] font-black tracking-widest text-blue-600 uppercase flex items-center gap-1.5">📋 Plan Project (MUAT 2026)</span>
+                    <span class="text-[9px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-bold">Progress</span>
                 </div>
                 <div class="space-y-3 text-xs">
                     <div>
-                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                        <div class="flex justify-between text-slate-700 font-medium mb-1">
                             <span>Modernisasi Gate & QR Parkir</span>
-                            <span class="text-emerald-400 font-bold">85%</span>
+                            <span class="text-emerald-600 font-bold">85%</span>
                         </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-emerald-500 h-full w-[85%]"></div></div>
+                        <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden"><div class="bg-emerald-500 h-full w-[85%]"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                        <div class="flex justify-between text-slate-700 font-medium mb-1">
                             <span>Revitalisasi Taman & Jalur Hijau</span>
-                            <span class="text-blue-400 font-bold">70%</span>
+                            <span class="text-blue-600 font-bold">70%</span>
                         </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[70%]"></div></div>
+                        <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[70%]"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between text-slate-200 font-medium mb-1">
+                        <div class="flex justify-between text-slate-700 font-medium mb-1">
                             <span>Audit & Peremajaan Genset Gedung</span>
-                            <span class="text-amber-400 font-bold">On-Progress</span>
+                            <span class="text-amber-600 font-bold">On-Progress</span>
                         </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-amber-500 h-full w-[45%]"></div></div>
+                        <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden"><div class="bg-amber-500 h-full w-[45%]"></div></div>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="p-4 bg-slate-900 border-t border-slate-800 text-[11px] text-center text-slate-500 font-medium">Riverside Living Magazine &copy; 2026</div>
+        <div class="p-4 bg-slate-50 border-t border-slate-200 text-[11px] text-center text-slate-500 font-medium">Riverside Living Magazine &copy; 2026</div>
     </aside>
-
     <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
         
@@ -496,7 +496,7 @@
                 author: "Tenant Relation Riverside Apartment",
                 image: "Featured Hero.jpeg",
                 summary: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Edisi kali ini merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas selama September & Oktober 2026.",
-                content: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Hadir kembali di hadapan Bapak/Ibu sekalian, Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11). Edisi kali ini kami hadirkan secara istimewa dengan konten yang lebih padat, merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas kita selama dua bulan berturut-turut (September & Oktober 2026). Berbagai momen krusial telah kita lalui bersama, salah satunya adalah agenda Musyawarah Umum Anggota Tahunan (MUAT) 2026 yang berlangsung dengan hangat dan penuh semangat keterbukaan. Di saat yang sama, pemeliharaan rutin gedung serta modernisasi layanan digital—seperti sistem reservasi fasilitas berbasis QR—terus ditingkatkan demi kenyamanan bersama. Melalui edisi ini, kami mengajak seluruh warga untuk terus menjaga keasrian, kebersihan, serta keharmonisan di lingkungan Riverside. Selamat membaca!"
+                content: "Salam hangat untuk seluruh penghuni Apartemen Muara Indah Riverside! Hadir kembali di hadapan Bapak/Ibu sekalian, Riverside Living Magazine edisi gabungan (Double Edition Edisi 10 & 11). Edisi kali ini kami hadirkan secara istimewa dengan konten yang lebih padat, merangkum perjalanan pengelolaan, evaluasi operasional, serta dinamika komunitas kita selama dua bulan berturut-turut (September & Oktober 2026). Berbagai momen krusial telah kita lalui bersama, salah satunya adalah agenda Musyawarah Umum Anggota Tahunan (MUAT) 2026 yang berlangsung dengan hangat dan penuh semangat keterbukaan. Di saat yang sama, pemeliharaan rutin gedung serta modernisasi layanan digital—seperti sistem reservasi fasilitas berbasis aplikasi & QR—terus ditingkatkan demi kenyamanan bersama. Melalui edisi ini, kami mengajak seluruh warga untuk terus menjaga keasrian, kebersihan, serta keharmonisan di lingkungan Riverside. Selamat membaca!"
             },
             {
                 id: 2,
@@ -547,7 +547,7 @@
                 image: "MUAT 01 RLM.jpeg",
                 summary: "Apresiasi kesuksesan Musyawarah Umum Anggota (MUAT) 2026 serta catatan penting warga terkait kebersihan lift dan kestabilan CCTV.",
                 content: 'Kehidupan di hunian vertikal menuntut keseimbangan antara apresiasi atas kemajuan bersama dan kepedulian terhadap fasilitas publik. Sepanjang periode ini, suara dari para penghuni di Tower A dan Tower B merangkum dua hal penting: harapan besar pasca-MUAT dan teguran konstruktif untuk kenyamanan bersama.<br><br><strong>1. Apresiasi Kesuksesan Musyawarah Umum (MUAT) 2026</strong><br>Warga menyampaikan apresiasi mendalam atas terselenggaranya Musyawarah Umum Anggota Tahunan yang menghasilkan keputusan paling demokratis. Harapan besar disematkan agar keputusan tersebut membawa Apartemen Muara Indah semakin bagus, khususnya dalam hal peremajaan fasad gedung dan peningkatan kualitas fasilitas umum lainnya.<br><br><strong>2. Catatan Kritis: Kebersihan Lift & Stabilitas CCTV</strong><br>Di sisi lain, warga melayangkan komplain tegas atas temuan yang meresahkan, seperti adanya air ludah di dalam lift. Kondisi ini diperparah oleh fungsi CCTV yang kurang stabil, sehingga menyulitkan pengelola untuk melacak oknum penghuni yang kurang peduli terhadap kebersihan dan kesehatan lingkungan bersama.<br><br><em>"Kepedulian terhadap fasilitas bersama adalah cerminan kualitas kita sebagai tetangga. Mari saling mengingatkan dan menjaga kebersihan lift serta fasilitas publik demi kesehatan seluruh penghuni,"</em> ujar salah satu perwakilan warga.<br><br><div class="mt-6 pt-4 border-t border-slate-200"><p class="mb-3 font-extrabold text-sm text-slate-900 uppercase tracking-wider">Galeri Foto Dokumentasi MUAT 2026:</p><div class="flex overflow-x-auto space-x-3 pb-3 scrollbar-none"><img src="MUAT 01 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 1"><img src="MUAT 02 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 2"><img src="MUAT 03 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 3"><img src="MUAT 04 RLM.jpeg" class="w-72 h-48 object-cover rounded-xl shrink-0 shadow-sm border border-slate-200" alt="Dokumentasi 4"></div><p class="text-[11px] text-slate-400 italic mt-1">&rarr; Geser ke samping untuk melihat foto dokumentasi lainnya</p></div>'
-            },
+                        },
             {
                 id: 7,
                 title: "Tips & Trik: Unit Aman & Bebas Khawatir Jelang Musim Hujan",
@@ -555,8 +555,8 @@
                 date: "Oktober 2026",
                 author: "Tenant Relation Riverside Apartment",
                 image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800",
-                summary: "Panduan praktis cek seal jendela, membersihkan floor drain, hingga pengamanan instalasi gas dan listrik.",
-                content: "Musim hujan kerap datang membawa suasana syahdu, namun juga menuntut kewaspadaan ekstra. Periksa karet seal jendela secara berkala, pastikan saluran *floor drain* kamar mandi bersih dari endapan, serta amankan instalasi gas dan listrik sebelum meninggalkan unit."
+                summary: "Panduan praktis cek seal jendela, membersihkan floor drain, hingga pengamanan instalasi gas dan listrik secara menyeluruh di unit hunian vertikal.",
+                content: "Musim hujan kerap datang membawa suasana syahdu dan kesejukan di kawasan apartemen kita, namun di sisi lain juga menuntut kewaspadaan ekstra dari setiap penghuni. Tinggal di hunian vertikal berarti kenyamanan unit kita sangat bergantung pada mitigasi risiko mandiri yang tepat.<br><br><strong>1. Pemeriksaan Kerapatan Karet Seal Jendela & Pintu Balkon</strong><br>Tampias air hujan yang disertai angin kencang sering kali merembes melalui celah jendela atau pintu penghubung. Periksa kembali kondisi karet *seal* atau pelindung kusen. Jika sudah mulai getas atau longgar, segera laporkan ke tim teknis untuk mendapatkan penanganan atau penggantian.<br><br><strong>2. Pembersihan Saluran Air (Floor Drain) Kamar Mandi & Area Servis</strong><br>Pastikan lubang pembuangan air (*floor drain*) di area kamar mandi, dapur, maupun servis bebas dari endapan rambut, sisa sabun, atau kotoran. Saluran yang lancar akan mencegah genangan air di dalam unit saat curah hujan meningkat drastis.<br><br><strong>3. Pengamanan Instalasi Listrik & Perangkat Elektronik Sensitif</strong><br>Saat terjadi petir atau hujan lebat disertai kilat, biasakan mencabut kabel perangkat elektronik yang tidak digunakan guna menghindari lonjakan arus pendek (korsleting). Pastikan juga area stopkontak jauh dari jangkauan cipratan air.<br><br><strong>4. Perawatan Tanaman di Area Jendela / Sisi Luar</strong><br>Bagi warga yang menempatkan pot tanaman di dekat jendela atau rak gantung luar, pastikan pot tersebut terikat kuat dan tidak berpotensi jatuh akibat angin kencang demi keamanan bersama warga di lantai bawah."
             },
             {
                 id: 8,
@@ -565,8 +565,8 @@
                 date: "Oktober 2026",
                 author: "Operational Management",
                 image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
-                summary: "Jadwal pemeliharaan genset utama, uji coba alat pemadam kebakaran, turnamen olahraga internal, hingga persiapan libur akhir tahun.",
-                content: "<strong>Minggu I November:</strong> Pemeliharaan berkala genset utama & uji coba sistem pemadam kebakaran gedung.<br><strong>Minggu III November:</strong> Turnamen olahraga kebersamaan warga (Bulu Tangkis/Futsal Internal).<br><strong>Desember:</strong> Koordinasi pengamanan libur Natal dan Tahun Baru 2027."
+                summary: "Jadwal lengkap pemeliharaan fasilitas, perbaikan infrastruktur kawasan, turnamen olahraga warga, hingga pengamanan libur akhir tahun 2026.",
+                content: "<strong>A. Agenda & Proyek Pemeliharaan Fisik (November 2026)</strong><br>• <strong>Perbaikan Paving Blok:</strong> Peremajaan jalur area gerbang pos keluar apartemen oleh Tim Teknisi.<br>• <strong>Kristalisasi Lantai Koridor:</strong> Perawatan dan pemolesan berkala seluruh lantai koridor di semua tower oleh Tim Housekeeping / Cleaning.<br>• <strong>Trial Upgrade Sistem Akses:</strong> Uji coba pembaruan perangkat sistem akses kontrol pintu koridor basement oleh Tim Teknisi.<br>• <strong>Start Project Pintu Darurat:</strong> Memulai tahap pengadaan dan pengerjaan pintu gerbang khusus darurat/emergency (Open RFQ).<br><br><strong>B. Jadwal Rutin & Event Komunitas</strong><br>• <strong>Minggu I November:</strong> Pemeliharaan berkala genset utama & uji coba sistem pemadam kebakaran gedung.<br>• <strong>Minggu III November:</strong> Turnamen olahraga kebersamaan warga (Bulu Tangkis/Futsal Internal).<br>• <strong>Desember:</strong> Koordinasi pengamanan libur Natal dan Tahun Baru 2027."
             },
             {
                 id: 9,
@@ -701,19 +701,27 @@
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebarPanel');
             const overlay = document.getElementById('sidebarOverlay');
-            if (sidebar.classList.contains('-translate-x-full')) {
-                sidebar.classList.remove('-translate-x-full');
+            
+            if (sidebar.classList.contains('opacity-0')) {
+                // Munculkan Sidebar dengan efek Zoom & Fade
+                sidebar.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+                sidebar.classList.add('opacity-100', 'scale-100');
+                
+                // Munculkan Overlay
                 overlay.classList.remove('hidden');
                 setTimeout(() => overlay.classList.remove('opacity-0'), 10);
                 document.body.style.overflow = 'hidden';
             } else {
-                sidebar.classList.add('-translate-x-full');
+                // Sembunyikan Sidebar
+                sidebar.classList.remove('opacity-100', 'scale-100');
+                sidebar.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+                
+                // Sembunyikan Overlay
                 overlay.classList.add('opacity-0');
                 setTimeout(() => overlay.classList.add('hidden'), 300);
                 document.body.style.overflow = 'auto';
             }
         }
-
         // Google Sheets Polling Backend URL (Ganti dengan URL /exec lo nanti)
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP77xqq8QoACKtvkZxJWOsdULoLZpWybteOdkifryxT6QWzU4WIPcfgI5DRe2B5UjdOg/exec";
 
