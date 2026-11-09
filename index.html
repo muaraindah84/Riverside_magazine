@@ -429,81 +429,112 @@
             </div>
         </section>
 
-<!-- Section: Album Kerja & Galeri Lapangan (Responsive Grid untuk HP, Slider untuk Desktop) -->
+<!-- Section: Album Kerja & Galeri Lapangan (Multi-Foto per Slide) -->
         <section class="my-6">
             <div class="flex justify-between items-center mb-4 border-b border-slate-200 pb-3">
                 <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-amber-600"></span>
                     Album Kerja & Galeri Lapangan (Oktober 2026)
                 </h3>
-                <span class="text-[11px] font-medium text-slate-400 hidden sm:inline">Geser &rarr;</span>
-                <span class="text-[11px] font-medium text-slate-400 sm:hidden">8 Dokumentasi</span>
+                <span class="text-[11px] font-medium text-slate-400">Geser untuk lihat slide &rarr;</span>
             </div>
             
-            <!-- Di HP jadi Grid 1 kolom ke bawah (full), di Laptop/PC jadi Flex Slider Horizontal -->
-            <div class="grid grid-cols-1 sm:flex sm:overflow-x-auto sm:space-x-4 sm:pb-4 space-y-4 sm:space-y-0 scrollbar-none sm:snap-x">
+            <!-- Container Slider Utama (Geser Horizontal per Grup Slide) -->
+            <div class="flex overflow-x-auto space-x-4 pb-4 scrollbar-none snap-x snap-mandatory">
                 
-                <!-- Foto 1 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="asp01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 1">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Perbaikan aspal jalur keluar</p>
+                <!-- SLIDE 1 (Grup Divisi Infrastruktur & Paving/Aspal) -->
+                <div class="min-w-[100%] sm:min-w-[85%] md:min-w-[70%] snap-center shrink-0 bg-slate-50 border border-slate-200 rounded-2xl p-3 sm:p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-[11px] font-black uppercase text-blue-600 tracking-wider">Slide 1: Perbaikan Jalan & Infrastruktur</span>
+                        <span class="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full">Oktober 2026</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Foto 1 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="asp01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 1">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Perbaikan aspal jalur keluar</p>
+                            </div>
+                        </div>
+                        <!-- Foto 2 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="Asp02.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 2">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Pengaspalan tutup guter jalur utama</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Foto 2 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="Asp02.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 2">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Pengaspalan tutup guter jalur utama</p>
+                <!-- SLIDE 2 (Grup Divisi Housekeeping & Pertamanan) -->
+                <div class="min-w-[100%] sm:min-w-[85%] md:min-w-[70%] snap-center shrink-0 bg-slate-50 border border-slate-200 rounded-2xl p-3 sm:p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-[11px] font-black uppercase text-emerald-600 tracking-wider">Slide 2: Housekeeping & Penghijauan</span>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full">Oktober 2026</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Foto 3 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="hk01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 3">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Penataan Taman Rumput Warga</p>
+                            </div>
+                        </div>
+                        <!-- Foto 4 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="hk02.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 4">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Treaming bambu sisi tanggul</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Foto 3 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="hk01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 3">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Penataan Taman Rumput Warga</p>
+                <!-- SLIDE 3 (Grup Divisi Engineering - Perawatan Unit & Utilitas) -->
+                <div class="min-w-[100%] sm:min-w-[85%] md:min-w-[70%] snap-center shrink-0 bg-slate-50 border border-slate-200 rounded-2xl p-3 sm:p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-[11px] font-black uppercase text-amber-600 tracking-wider">Slide 3: Engineering & Pemeliharaan Unit</span>
+                        <span class="text-[10px] bg-amber-100 text-amber-700 font-bold px-2 py-0.5 rounded-full">Oktober 2026</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Foto 5 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="eng01.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 5">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Vacuming pipa pembuangan kamar mandi</p>
+                            </div>
+                        </div>
+                        <!-- Foto 6 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="eng02.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 6">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Perbaikan engsel jendela unit</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Foto 4 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="hk02.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 4">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Treaming bambu sisi tanggul</p>
+                <!-- SLIDE 4 (Grup Divisi Utilitas & Security) -->
+                <div class="min-w-[100%] sm:min-w-[85%] md:min-w-[70%] snap-center shrink-0 bg-slate-50 border border-slate-200 rounded-2xl p-3 sm:p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-[11px] font-black uppercase text-purple-600 tracking-wider">Slide 4: Utilitas & Bina Fisik Security</span>
+                        <span class="text-[10px] bg-purple-100 text-purple-700 font-bold px-2 py-0.5 rounded-full">Oktober 2026</span>
                     </div>
-                </div>
-
-                <!-- Foto 5 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="eng01.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 5">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Vacuming pipa pembuangan kamar mandi unit</p>
-                    </div>
-                </div>
-
-                <!-- Foto 6 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="eng02.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 6">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Perbaikan engsel jendela unit</p>
-                    </div>
-                </div>
-
-                <!-- Foto 7 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="eng05.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 7">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Peremajaan pipa transfer air bersih</p>
-                    </div>
-                </div>
-
-                <!-- Foto 8 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
-                    <img src="sec01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 8">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-sm text-white font-bold leading-snug">Bina Fisik Security pelatihan JUDO</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Foto 7 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="eng05.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 7">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Peremajaan pipa transfer air bersih</p>
+                            </div>
+                        </div>
+                        <!-- Foto 8 -->
+                        <div class="relative rounded-xl overflow-hidden shadow-sm h-36 sm:h-44 group cursor-pointer">
+                            <img src="sec01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 8">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                <p class-[11px] text-xs text-white font-bold leading-tight">Bina Fisik Security pelatihan JUDO</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
