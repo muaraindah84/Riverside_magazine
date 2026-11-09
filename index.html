@@ -429,35 +429,85 @@
             </div>
         </section>
 
-        <!-- Section: Album Kerja & Galeri Foto -->
+<!-- Section: Album Kerja & Galeri Foto (Slide Horizontal - 8 Foto) -->
         <section>
             <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-3">
                 <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-amber-600"></span>
                     Album Kerja & Galeri Lapangan (Oktober 2026)
                 </h3>
-                <span class="text-xs font-medium text-slate-500">Dokumentasi Double Edition</span>
+                <span class="text-xs font-medium text-slate-400">Geser untuk melihat semua &rarr;</span>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
-                    <img src="asp01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Perbaikan aspal jalur keluar</p></div>
+            
+            <!-- Container Slider Horizontal -->
+            <div class="flex overflow-x-auto space-x-4 pb-4 scrollbar-none snap-x">
+                
+                <!-- Foto 1 -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="asp01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 1">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Perbaikan aspal jalur keluar</p>
+                    </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
-                    <img src="Asp02.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Pengaspalan tutup guter jalur utama</p></div>
+
+                <!-- Foto 2 -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="Asp02.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Pengaspalan tutup guter jalur utama</p>
+                    </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
-                    <img src="hk01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Penataan Taman Rumput Warga</p></div>
+
+                <!-- Foto 3 -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="hk01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Penataan Taman Rumput Warga</p>
+                    </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 group cursor-pointer">
-                    <img src="hk02.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3"><p class="text-xs text-white font-bold">Treaming bambu sisi tanggul</p></div>
+
+                <!-- Foto 4 -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="hk02.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 4">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Treaming bambu sisi tanggul</p>
+                    </div>
                 </div>
+
+                <!-- Foto 5 (Tambahan Baru) -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="eng01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 5">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Perawatan berkala panel genset</p>
+                    </div>
+                </div>
+
+                <!-- Foto 6 (Tambahan Baru) -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="sec01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Briefing rutin tim security pos utama</p>
+                    </div>
+                </div>
+
+                <!-- Foto 7 (Tambahan Baru) -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="clean01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 7">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Kristalisasi lantai selasar tower</p>
+                    </div>
+                </div>
+
+                <!-- Foto 8 (Tambahan Baru) -->
+                <div class="relative rounded-xl overflow-hidden shadow-sm h-40 min-w-[240px] sm:min-w-[260px] snap-start group cursor-pointer shrink-0">
+                    <img src="util01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Galeri 8">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                        <p class="text-xs text-white font-bold">Pengecekan ruang pompa booster air</p>
+                    </div>
+                </div>
+
             </div>
         </section>
-
         <!-- Section: Kotak Aspirasi & Saran Warga (Terhubung ke Google Sheets Tab Baru) -->
         <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
             <div class="max-w-xl">
@@ -617,7 +667,7 @@
                 date: "Oktober 2026",
                 author: "Operational Management",
                 image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
-                summary: "Jadwal lengkap pemeliharaan fasilitas, perbaikan infrastruktur kawasan, turnamen olahraga warga, hingga pengamanan libur akhir tahun 2026.",
+                summary: "Jadwal lengkap pemeliharaan fasilitas, perbaikan infrastruktur kawasan, hingga pengamanan libur akhir tahun 2026.",
                 content: "<strong>A. Agenda & Proyek Pemeliharaan Fisik (November 2026)</strong><br>• <strong>Perbaikan Paving Blok:</strong> Peremajaan jalur area gerbang pos keluar apartemen oleh Tim Teknisi.<br>• <strong>Kristalisasi Lantai Koridor:</strong> Perawatan dan pemolesan berkala seluruh lantai koridor di semua tower oleh Tim Housekeeping / Cleaning.<br>• <strong>Trial Upgrade Sistem Akses:</strong> Uji coba pembaruan perangkat sistem akses kontrol pintu koridor basement oleh Tim Teknisi.<br>• <strong>Start Project Pintu Darurat:</strong> Memulai tahap pengadaan dan pengerjaan pintu gerbang khusus darurat/emergency (Open RFQ).<br><br><strong>B. Jadwal Rutin & Event Komunitas</strong><br>• <strong>Minggu I November:</strong> Pemeliharaan berkala genset utama & uji coba sistem pemadam kebakaran gedung.<br>• <strong>Minggu III November:</strong> Turnamen olahraga kebersamaan warga (Bulu Tangkis/Futsal Internal).<br>• <strong>Desember:</strong> Koordinasi pengamanan libur Natal dan Tahun Baru 2027."
             },
             {
