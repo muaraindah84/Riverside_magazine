@@ -429,116 +429,84 @@
             </div>
         </section>
 
-<!-- Section: Album Kerja & Galeri Lapangan (Optimized Mobile & Desktop) -->
+<!-- Section: Album Kerja & Galeri Lapangan (Responsive Grid untuk HP, Slider untuk Desktop) -->
         <section class="my-6">
             <div class="flex justify-between items-center mb-4 border-b border-slate-200 pb-3">
                 <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-amber-600"></span>
                     Album Kerja & Galeri Lapangan (Oktober 2026)
                 </h3>
-                <span class="text-[11px] font-medium text-slate-400">Geser &rarr;</span>
+                <span class="text-[11px] font-medium text-slate-400 hidden sm:inline">Geser &rarr;</span>
+                <span class="text-[11px] font-medium text-slate-400 sm:hidden">8 Dokumentasi</span>
             </div>
             
-            <!-- Container Slider Horizontal -->
-            <div class="flex overflow-x-auto space-x-3 pb-3 scrollbar-none snap-x snap-mandatory">
+            <!-- Di HP jadi Grid 1 kolom ke bawah (full), di Laptop/PC jadi Flex Slider Horizontal -->
+            <div class="grid grid-cols-1 sm:flex sm:overflow-x-auto sm:space-x-4 sm:pb-4 space-y-4 sm:space-y-0 scrollbar-none sm:snap-x">
                 
                 <!-- Foto 1 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="asp01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 1">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Perbaikan aspal jalur keluar</p>
+                        <p class="text-sm text-white font-bold leading-snug">Perbaikan aspal jalur keluar</p>
                     </div>
                 </div>
 
                 <!-- Foto 2 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="Asp02.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 2">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Pengaspalan tutup guter jalur utama</p>
+                        <p class="text-sm text-white font-bold leading-snug">Pengaspalan tutup guter jalur utama</p>
                     </div>
                 </div>
 
                 <!-- Foto 3 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="hk01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 3">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Penataan Taman Rumput Warga</p>
+                        <p class="text-sm text-white font-bold leading-snug">Penataan Taman Rumput Warga</p>
                     </div>
                 </div>
 
                 <!-- Foto 4 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="hk02.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 4">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Treaming bambu sisi tanggul</p>
+                        <p class="text-sm text-white font-bold leading-snug">Treaming bambu sisi tanggul</p>
                     </div>
                 </div>
 
                 <!-- Foto 5 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="eng01.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 5">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Vacuming pipa pembuangan kamar mandi unit</p>
+                        <p class="text-sm text-white font-bold leading-snug">Vacuming pipa pembuangan kamar mandi unit</p>
                     </div>
                 </div>
 
                 <!-- Foto 6 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="eng02.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 6">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Perbaikan engsel jendela unit</p>
+                        <p class="text-sm text-white font-bold leading-snug">Perbaikan engsel jendela unit</p>
                     </div>
                 </div>
 
                 <!-- Foto 7 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="eng05.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 7">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Peremajaan pipa transfer air bersih</p>
+                        <p class="text-sm text-white font-bold leading-snug">Peremajaan pipa transfer air bersih</p>
                     </div>
                 </div>
 
                 <!-- Foto 8 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md h-56 sm:h-64 min-w-[85%] sm:min-w-[320px] snap-center group cursor-pointer shrink-0">
+                <div class="relative rounded-2xl overflow-hidden shadow-md h-64 sm:min-w-[320px] sm:snap-start group cursor-pointer shrink-0 w-full">
                     <img src="sec01.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri 8">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
-                        <p class="text-xs sm:text-sm text-white font-bold leading-snug">Bina Fisik Security pelatihan JUDO</p>
+                        <p class="text-sm text-white font-bold leading-snug">Bina Fisik Security pelatihan JUDO</p>
                     </div>
                 </div>
 
-            </div>
-        </section>
-        <!-- Section: Kotak Aspirasi & Saran Warga (Terhubung ke Google Sheets Tab Baru) -->
-        <section id="laporanWargaSection" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
-            <div class="max-w-xl">
-                <span class="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Partisipasi Warga</span>
-                <h3 class="text-xl font-black text-slate-900 mt-2">Kotak Saran, Kritik & Aspirasi</h3>
-                <p class="text-xs text-slate-500 mt-1">Punya ide untuk kemajuan lingkungan Riverside, masukan rubrik majalah, atau kritik membangun? Sampaikan di sini untuk bahan evaluasi bersama.</p>
-            </div>
-            
-            <div id="saranContainer" class="mt-6">
-                <form id="saranForm" onsubmit="submitSaran(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama / No. Unit Penghuni (Opsional)</label>
-                        <input type="text" id="saranNama" placeholder="Contoh: Bpk. Budi / Unit 1A0502" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Kategori Masukan</label>
-                        <select id="saranKategori" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-                            <option>Saran & Ide Pengelolaan</option>
-                            <option>Masukan Konten / Rubrik Majalah</option>
-                            <option>Kritik Konstruktif Fasilitas</option>
-                            <option>Apresiasi / Lainnya</option>
-                        </select>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Pesan / Saran Anda</label>
-                        <textarea id="saranPesan" rows="3" required placeholder="Tuliskan saran, kritik membangun, atau ide Anda di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
-                    </div>
-                    <div class="md:col-span-2">
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition shadow">Kirim Saran & Aspirasi</button>
-                    </div>
-                </form>
             </div>
         </section>
     </main>
